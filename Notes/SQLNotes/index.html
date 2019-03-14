@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="RookieWutongshu">
+  <link rel="shortcut icon" href="../../favicon.ico">
+  
+  <title>SQLNotes - Welcome to RookieWutongshu's Blog</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "SQLNotes";
+    var mkdocs_page_input_path = "Notes\\SQLNotes.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Welcome to RookieWutongshu's Blog</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Notes Navigation</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <a class="current" href="./">SQLNotes</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#sqlnotes">SQLNotes</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#intro">Intro</a></li>
+        
+            <li><a class="toctree-l4" href="#syntax">Syntax</a></li>
+        
+            <li><a class="toctree-l4" href="#sql-select">SQL Select</a></li>
+        
+            <li><a class="toctree-l4" href="#sql-select-distinct-statement">SQL select distinct statement</a></li>
+        
+            <li><a class="toctree-l4" href="#sql-where-clause">SQL WHERE Clause(查询子句)</a></li>
+        
+            <li><a class="toctree-l4" href="#sql-andor-and-not-operators">SQL AND,OR and NOT Operators</a></li>
+        
+            <li><a class="toctree-l4" href="#sql-order-by-keyword">SQL ORDER BY Keyword(按关键字排序)</a></li>
+        
+            <li><a class="toctree-l4" href="#sql-insert-into-statement">SQL INSERT INTO Statement</a></li>
+        
+            <li><a class="toctree-l4" href="#sql-null-values">SQL NULL Values</a></li>
+        
+            <li><a class="toctree-l4" href="#sql-update-statement">SQL UPDATE Statement</a></li>
+        
+            <li><a class="toctree-l4" href="#sql-delete-statement">SQL DELETE Statement</a></li>
+        
+            <li><a class="toctree-l4" href="#sql-top-limit-or-rownum-clause">SQL TOP, LIMIT or ROWNUM Clause</a></li>
+        
+            <li><a class="toctree-l4" href="#sql-min-and-max-functions">SQL MIN() and MAX() Functions(函数)</a></li>
+        
+            <li><a class="toctree-l4" href="#thanks-to">Thanks to</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../EnglishNotes/">EnglishNotes</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Others</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../Others/Questions/">Questions</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Welcome to RookieWutongshu's Blog</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Notes Navigation &raquo;</li>
+        
+      
+    
+    <li>SQLNotes</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="sqlnotes">SQLNotes</h1>
+<div class="toc">
+<ul>
+<li><a href="#sqlnotes">SQLNotes</a><ul>
+<li><a href="#intro">Intro</a></li>
+<li><a href="#syntax">Syntax</a></li>
+<li><a href="#sql-select">SQL Select</a></li>
+<li><a href="#sql-select-distinct-statement">SQL select distinct statement</a></li>
+<li><a href="#sql-where-clause">SQL WHERE Clause(查询子句)</a></li>
+<li><a href="#sql-andor-and-not-operators">SQL AND,OR and NOT Operators</a></li>
+<li><a href="#sql-order-by-keyword">SQL ORDER BY Keyword(按关键字排序)</a></li>
+<li><a href="#sql-insert-into-statement">SQL INSERT INTO Statement</a></li>
+<li><a href="#sql-null-values">SQL NULL Values</a></li>
+<li><a href="#sql-update-statement">SQL UPDATE Statement</a></li>
+<li><a href="#sql-delete-statement">SQL DELETE Statement</a></li>
+<li><a href="#sql-top-limit-or-rownum-clause">SQL TOP, LIMIT or ROWNUM Clause</a></li>
+<li><a href="#sql-min-and-max-functions">SQL MIN() and MAX() Functions(函数)</a></li>
+<li><a href="#thanks-to">Thanks to</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="intro">Intro</h2>
+<ul>
+<li>SQL(Structured Query Language)指结构化查询语言</li>
+<li>SQL使我们有能力访问数据库</li>
+<li>SQL使一种ANSI( America National Standard Institute美国国家标准化组织)的标准计算机语言</li>
+</ul>
+<p><strong>What can SQL Do?</strong></p>
+<ul>
+<li>创建新的数据库及其对象(表，索引，视图，存储过程，函数和触发器)</li>
+<li>从数据库中，执行查询，取回数据，插入数据，更新数据，删除数据</li>
+<li>可以Commit数据字典</li>
+<li>RENAME一个对象</li>
+<li>在数据库中设置用户Grant和Revoke权限</li>
+</ul>
+<p><strong>RDBMS</strong></p>
+<p>Relational Database Management System.关系型数据库。RDBMS的数据都存于数据库对象——<strong>Table(表)</strong>中。表是相关数据项的集合，由列和行组成。每个表由更小的实体<strong>Field(字段)</strong>组成，字段是表中的一列，以maintain(维护)表中每条记录的特定信息。</p>
+<p><strong>record(记录)</strong>（也称为行），是存在于表中的每个单独<strong>entry(条目)</strong>，一条record是表中的一个horizontal entity(横向实体)。</p>
+<p><strong>column(列)</strong>是表中的vertical entity(垂直实体)，contains associated with 表中一个特定字段所有信息。</p>
+<h2 id="syntax">Syntax</h2>
+<p><strong>Database Tables</strong></p>
+<p>Each table is identified by a name. Tables contains(包含) records(rows) with data.</p>
+<p><strong>SQL Statements(语句)</strong></p>
+<p>Most of the actions（操作） you need to perform on a database are done with SQL statements.</p>
+<p><strong>Keep in mind that</strong></p>
+<ul>
+<li>SQL keywords are not case sensitive(大小写不敏感)</li>
+<li>Semicolon(分号) after SQL Statements</li>
+<li>SQL statements always begin with keywords</li>
+</ul>
+<p>For the second point,虽然不是每种DBS都要求，但他是种标准分割SQL语句的方法，让我们在 same call （同一请求）中执行多条语句</p>
+<p><strong>Some of the most important SQL Commands（命令）</strong></p>
+<ul>
+<li><strong>SELECT</strong> - extracts(提取) data from a database</li>
+<li><strong>UPDATE</strong> - updates data in a database</li>
+<li><strong>DELETE</strong> - deletes data from a database</li>
+<li><strong>INSERT INTO</strong> - inserts new data into a database</li>
+<li><strong>CREATE DATABASE</strong> - creates a new database</li>
+<li><strong>ALTER DATABASE</strong> - modifies a database</li>
+<li><strong>CREATE TABLE</strong> - creates a new table</li>
+<li><strong>ALTER TABLE</strong> - modifies a table</li>
+<li><strong>DROP TABLE</strong> - deletes a table</li>
+<li><strong>CREATE INDEX</strong> - creates an index (search key)</li>
+<li><strong>DROP INDEX</strong> - deletes an index</li>
+</ul>
+<h2 id="sql-select">SQL Select</h2>
+<p><strong>The SQL Select Statement</strong></p>
+<p>The select statement is used to selcet data from a database.</p>
+<p>The Data returned is stored（存储）in a result table,called the <strong>result-set</strong></p>
+<p><strong>Seclect Syntax</strong></p>
+<pre><code class="sql">select column1,column2,... from table_name;
+</code></pre>
+
+<p>if you want to select all the fields available（可获得的）in the table,use the following syntax:</p>
+<pre><code class="sql">select * from table_name;
+</code></pre>
+
+<p><strong>Navigation（导航） in result-set</strong></p>
+<p>most DBS allow use 编程函数 to navigate in result-set 中,for example: Move-To-First-Record,Move-To-Next-Record,Get-Record-Content等等</p>
+<h2 id="sql-select-distinct-statement">SQL select distinct statement</h2>
+<p><strong>The SQL SELECT DISTINCT Statement</strong></p>
+<p>The select distinct statement is used to return only distinct(独特的，different) values</p>
+<p>Insides a table,a column often contains many duplicate (重复的) values; and sometimes you only want to list the distinct values.</p>
+<p><strong>SELECT  DISTINCT Syntax</strong></p>
+<pre><code class="sql">SELECT DISTINCT column1,column2,... FROM table_name;
+</code></pre>
+
+<p>The following SQL statement lists the number of different customer countries</p>
+<pre><code class="sql">SELECT COUNT(DISTINCT country) FROM Customers;
+</code></pre>
+
+<blockquote>
+<p>Note:The example above will not work in Firefox and Microsoft Edge Because they are using Microsoft Access Database.And this usage(用法) are not supported for it.We can use following statement to replace</p>
+</blockquote>
+<pre><code class="sql">SELECT COUNT(*) AS DistinctCountries FROM (SELECT DISTINCT Country FROM Customers);
+</code></pre>
+
+<h2 id="sql-where-clause">SQL WHERE Clause(查询子句)</h2>
+<p>The Where clause is used to filter records,extract only those records that fulfill(满足) a specific condition.</p>
+<p><strong>WHERE Syntax</strong></p>
+<pre><code class="sql">SELECT column1,column2,... FROM table_name WHERE condition;
+</code></pre>
+
+<p><strong>WHERE Clause Example</strong></p>
+<pre><code class="sql">SELECT * FROM Customers WHERE Country = 'Mexico';
+</code></pre>
+
+<p><strong>Text Fields vs Numeric(数字，数值的) Fields</strong></p>
+<p>SQL requires single quotes(单引号) around text values(most database system will also allow the dobule quotes 双引号). However,numric fields should not be enclosed(被包围) in quotes:</p>
+<pre><code class="sql">SELECT * FROM Customer WHERE CustomerID = 1;
+</code></pre>
+
+<p><strong>Operators(运算符) in The WHERE Clause</strong></p>
+<p>The following operators can be used in the WHERE clause:</p>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>=</td>
+<td>Equal</td>
+</tr>
+<tr>
+<td>&lt;&gt;</td>
+<td>Not equal. <strong>Note:</strong> In some versions of SQL this operator may be written as !=</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>Greater than</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>Less than</td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td>Greater than or equal</td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>Less than or equal</td>
+</tr>
+<tr>
+<td>BETWEEN</td>
+<td>Between a certain range(确定的范围)</td>
+</tr>
+<tr>
+<td>LIKE</td>
+<td>Search for a pattern（模式）</td>
+</tr>
+<tr>
+<td>IN</td>
+<td>To specify(指定) multiple possible values for a column</td>
+</tr>
+</tbody>
+</table>
+<h2 id="sql-andor-and-not-operators">SQL AND,OR and NOT Operators</h2>
+<p>The WHERE Clause can be conbined(结合) AND,OR,and NOT operators.</p>
+<p>The AND and OR operators are used to fileter records based on more than one condutions.</p>
+<p>The AND(OR) opetators displays a record if all(any) the conditons separated(分开) by AND are(is) TRUE.</p>
+<p>The Not operators display a record if the condition(s)  is NOT TRUE.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="sql">SELECT column1,column2,... FROM table_name WHERE condition1 AND condition2 AND condition3...;
+SELECT column1,column2,... FROM table_name WHERE condition1 OR condition2 OR condition3...;
+SELECT column1,column2...FROM table_name WHERE NOT condition;
+</code></pre>
+
+<p><strong>Combining(使结合) AND,OR and NOT</strong></p>
+<p>You can conbine the AND,OR and  NOT operators.Use parenthesis[pə'rɛnθəsɪs 圆括号] to form(组成) complex expressions. </p>
+<pre><code class="sql">SELECT ＊ FROM Customers WHERE Country='Germany' AND (City='Berlin' OR City='Muchen');
+SELECT ＊ FROM Customers WHERE NOT Country='Germany' AND NOT Country='USA';　
+</code></pre>
+
+<h2 id="sql-order-by-keyword">SQL ORDER BY Keyword(按关键字排序)</h2>
+<p>The SQL ORDER BY keyword is used to sort(排序) the result-set in ascending or descending order(整理,顺序 ).</p>
+<p>It sort the records in ascending order by default.To sort the records in descending order，use the DESC keyword.</p>
+<p>ORDER BY Syntax</p>
+<pre><code class="sql">SELECT colomn1,column2... FROM table_name ORDER BY column1,column2,... ASC | DESC;
+</code></pre>
+
+<p><strong>ORDER BY Several Columns Example</strong></p>
+<p>The following statement will sort the result-set order by Country,but if some rows have the same country,it orders them by CustomerName</p>
+<pre><code class="sql">SELECT * FROM Customers ORDER BY Country,CustomersName (ASC);
+</code></pre>
+
+<p><strong>ORDER BY  Several Columns Example2</strong></p>
+<p>sorted them in ascending order by the "Country" and descending by the "CustomerName" column</p>
+<pre><code class="sql">SELECT * FROM Customers ORDER BY Country ASC,CustomerName DESC;
+</code></pre>
+
+<h2 id="sql-insert-into-statement">SQL INSERT INTO Statement</h2>
+<p>The INSERT INTO statement is used to insert new records in a table.</p>
+<p><strong>INSERT INTO Syntax</strong></p>
+<pre><code class="sql">INSERT INTO table_name(column1,column2,...) VALUES(values,values2,...);
+</code></pre>
+
+<p>If you are adding values for all the columns of the table,you do not need to specify the column names in the SQL statement.However,<strong>make sure the order of the values is in the same as the columns</strong> in the table.</p>
+<pre><code class="sql">INSERT INTO table_name VALUES (value1,value2,...);
+</code></pre>
+
+<p>The auto-increment(增量) field will be generated(生成) automatically when a new record is inserted into the table.</p>
+<p>Of course,you can also possible to only insert data in specific columns.</p>
+<h2 id="sql-null-values">SQL NULL Values</h2>
+<p>A field with NULL value is a field with no value.</p>
+<p>If a field in table is optional(可选择的)，it is possible to insert or update a record wirhout adding a value to this field.Then,the field will be saved with a NULL value.</p>
+<blockquote>
+<p>Note:A NULL value is different fron a zero value or a field that contains(包含) spaces.A field with a NULL value means it has been left blank(空白的) during record creation.</p>
+</blockquote>
+<p><strong>Syntax</strong></p>
+<p>Use IS NULL to test empty values.Use IS NOT NOT NULL test non-empty values</p>
+<pre><code class="sql">SELECT column1 FROM table_name WHERE column2 IS NULL;
+SELECT column1 FROM table_name WHERE column2 IS NOT NULL;
+</code></pre>
+
+<p>When you create a table contains a field allowed to left blank,you can write as bellow</p>
+<pre><code class="sql"> CREATE TABLE CUSTOMERS(
+   ID   INT              NOT NULL,
+   NAME VARCHAR (20)     NOT NULL,
+   AGE  INT              NOT NULL,
+   ADDRESS  CHAR (25) ,
+   SALARY   DECIMAL (18, 2),       
+   PRIMARY KEY (ID)
+);
+</code></pre>
+
+<h2 id="sql-update-statement">SQL UPDATE Statement</h2>
+<p>UPDATE Statement is used to modify the existing(现存) records in a table.</p>
+<p><strong>UPDATE Syntax</strong></p>
+<pre><code class="sql">UPDATE table_name SET column1 = value1,column2 = value2... WHERE condition;
+--update all the records
+UPDATE table_name SET column1 = value1...;
+</code></pre>
+
+<blockquote>
+<p><strong>NOTE</strong>: Be careful when updating records in a table!The WHERE Clause is used to specify which record(s) should be updateed.If you omit(省略) it ,all records in the table will be updated! </p>
+</blockquote>
+<h2 id="sql-delete-statement">SQL DELETE Statement</h2>
+<p>The DELETE statement is used to delete existing records in a table.</p>
+<p><strong>DELETE Syntax</strong></p>
+<pre><code class="sql">DELETE FROM table_name WHERE condition;
+-- delete all the records
+DELETE FROM table_name;
+</code></pre>
+
+<blockquote>
+<p><strong>NOTE</strong>:The same as UPDATE statement.Be careful the WHERE clause,if you omit WHERE clause,all records in the table will be deleted.</p>
+</blockquote>
+<p>Why don't we drop the table directly? Because delete all the records can leave table structs,property and indexs.</p>
+<h2 id="sql-top-limit-or-rownum-clause">SQL TOP, LIMIT or ROWNUM Clause</h2>
+<p>The SELECT TOP clause is used to specify the number of records to rerurn.</p>
+<p>The SELECT TOP clause is useful on large tables with thousands of records.Returning a large number of records can impact(影响) on performance(性能).</p>
+<blockquote>
+<p><strong>Note</strong>:Not all database systems support the SELECT TOP clause.MySQL supports the LIMIT clause to selcet a limited number of records,whlie Oracle use ROWNUM.But MySQL and Oracle do not support percents as value,you can write a extra SQL statement to realize it such as <code>SELECT COUNT(*)*percent FROM table_name WHERE condition;</code></p>
+</blockquote>
+<p><strong>SQL TOP Syntax</strong></p>
+<pre><code class="sql">-- SQL Server / MS Access Syntax
+SELECT TOP number | number PERCENT column1,column2... WHERE condition;
+-- MySQL Syntax
+SELECT column1,column2... FROM table_name WHERE condition LIMIT  number;
+-- Oracle Syntax
+SELECT colomn1,column2... FROM table_name WHERE conditon AND ROWNUM &lt;= number;
+</code></pre>
+
+<h2 id="sql-min-and-max-functions">SQL MIN() and MAX() Functions(函数)</h2>
+<p>The MIN() function returns the smallest value of the selected column.</p>
+<p>The MAX() function re</p>
+<h2 id="thanks-to">Thanks to</h2>
+<blockquote>
+<p>Reference</p>
+<p><a href="https://www.w3schools.com/sql/default.asp">w3schools</a></p>
+<p><a href="https://www.w3cschool.cn/sql/uoxvhfqr.html">W3CschoolCN</a></p>
+<p><a href="http://www.w3school.com.cn/sql/index.asp">W3School</a></p>
+</blockquote>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../EnglishNotes/" class="btn btn-neutral float-right" title="EnglishNotes">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../.." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../.." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../EnglishNotes/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>

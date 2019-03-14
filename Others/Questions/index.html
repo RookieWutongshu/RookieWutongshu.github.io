@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="RookieWutongshu">
+  <link rel="shortcut icon" href="../../favicon.ico">
+  
+  <title>Questions - Welcome to RookieWutongshu's Blog</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Questions";
+    var mkdocs_page_input_path = "Others\\Questions.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Welcome to RookieWutongshu's Blog</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Notes Navigation</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../Notes/SQLNotes/">SQLNotes</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../Notes/EnglishNotes/">EnglishNotes</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Others</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <a class="current" href="./">Questions</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#question">奇怪的question</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#prototypebean">什么时候会用到prototype的bean</a></li>
+        
+            <li><a class="toctree-l4" href="#resourceautowired">@Resource与@Autowired</a></li>
+        
+            <li><a class="toctree-l4" href="#sqlonwhere">SQL中On与Where的区别</a></li>
+        
+            <li><a class="toctree-l4" href="#strutsactioncontextservletactioncontext">Struts中，ActionContext与ServletActionContext区别</a></li>
+        
+            <li><a class="toctree-l4" href="#_1">正常业务里写存储过程和触发器多还是写在业务逻辑里多</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Welcome to RookieWutongshu's Blog</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Others &raquo;</li>
+        
+      
+    
+    <li>Questions</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="question">奇怪的question</h1>
+<h2 id="prototypebean">什么时候会用到prototype的bean</h2>
+<p>singleton是单例类型，就是在创建起容器时就自动创建了一个bean的对象，不管你是否使用，他都存在了，每次获取到的对象都是同一个对象。
+ propotype是原型类型，他在我们创建容器的时候并没有实例化，而是当我们获取bean的时候才会去创建一个对象。而且我们每次获取到的对象都不是同一个对象。</p>
+<blockquote>
+<p>Spring doesn't guarantee thread-safe.It should be your responsebility. but if its mutable then it might not be thread-safe——<a href="https://stackoverflow.com/users/1163607/nincompoop">nincompoop</a></p>
+<p>In general I never use prototype, I sometimes use it if you use a bean as a blueprint/template to create instances when I do a getBean on the BeanFactory/ApplicationContext——<a href="http://forum.spring.io/member/17263-marten-deinum">marten-deinum</a></p>
+<p>One reasonable scenario for prototype scope I encountered was a stateful object, needed by different known beans and each required its own copy. A dedicated factory class would be redundant in this scenario since I did not need to create objects on the fly but only during other beans' instantiation.——<a href="https://stackoverflow.com/users/100402/mrembisz">mrembisz</a></p>
+</blockquote>
+<p><a href="http://forum.spring.io/forum/spring-projects/container/81737-when-to-set-scope-as-prototype">reference1</a></p>
+<p><a href="https://stackoverflow.com/questions/10570821/what-is-the-prototype-spring-bean-used-for">reference2</a></p>
+<h2 id="resourceautowired">@Resource与@Autowired</h2>
+<p>@Resource的作用相当于@Autowired，只不过@Autowired按byType自动注入，而@Resource默认按 byName自动注入罢了。@Resource有两个属性是比较重要的，分是name和type，Spring将@Resource注解的name属性解析为bean的名字，而type属性则解析为bean的类型。所以如果使用name属性，则使用byName的自动注入策略，而使用type属性时则使用byType自动注入策略。如果既不指定name也不指定type属性，这时将通过反射机制使用byName自动注入策略。
+@Resource装配顺序</p>
+<pre><code> 　　1. 如果同时指定了name和type，则从Spring上下文中找到唯一匹配的bean进行装配，找不到则抛出异常
+ 　　2. 如果指定了name，则从上下文中查找名称（id）匹配的bean进行装配，找不到则抛出异常
+ 　　3. 如果指定了type，则从上下文中找到类型匹配的唯一bean进行装配，找不到或者找到多个，都会抛出异常
+ 　　4. 如果既没有指定name，又没有指定type，则自动按照byName方式进行装配；如果没有匹配，则回退为一个原始类型进行匹配，如果匹配则自动装配；
+</code></pre>
+<h2 id="sqlonwhere">SQL中On与Where的区别</h2>
+<p>数据库在通过连接两张或多张表来返回记录时，都会生成一张中间的临时表，然后再将这张临时表返回给用户。
+在使用left jion时，on和where条件的区别如下：
+1、 on条件是在生成临时表时使用的条件，它不管on中的条件是否为真，都会返回左边表中的记录。没有对应的右边值用Null填充
+2、where条件是在临时表生成好后，再对临时表进行过滤的条件。这时已经没有left join的含义（必须返回左边表的记录）了，条件不为真的就全部过滤掉。</p>
+<h2 id="strutsactioncontextservletactioncontext">Struts中，ActionContext与ServletActionContext区别</h2>
+<p>两者部分都是线程安全。我们遵循的原则是:如果ActionContext能够实现我们的功能,那最好就不要使用ServletActionContext,让我们的Action尽量不要直接去访问Servlet的相关对象.**</p>
+<p>SevletActionContext能取得这些对象</p>
+<p>(1)javax.servlet.http.HttpServletRequest : HTTPservlet请求对象</p>
+<p>(2)javax.servlet.http.HttpServletResponse : HTTPservlet相应对象</p>
+<p>(3)javax.servlet.ServletContext : Servlet上下文信息</p>
+<p>(4)javax.servlet.ServletConfig : Servlet配置对象</p>
+<p>(5)javax.servlet.jsp.PageContext : Http页面上下文</p>
+<pre><code class="java">//&lt;1&gt;取得HttpServletRequest对象: 
+HttpServletRequest request = ServletActionContext. getRequest();
+
+//&lt;2&gt;取得HttpSession对象: 
+HttpSession session = ServletActionContext. getRequest().getSession();
+</code></pre>
+
+<p>一般情况, 我们的ActionContext都是通过: ActionContext context = (ActionContext) actionContext.get();来获取的。</p>
+<p>ThreadLocal可以命名为"线程局部变量",它为每一个使用该变量的线程都提供一个变量值的副本,使每一个线程都可以独立地改变自己的副本,而不会和其它线程的副本冲突.这样,我们ActionContext里的属性只会在对应的当前请求线程中可见,从而保证它是线程安全的.</p>
+<p><code>static ThreadLocal actionContext = new ActionContextThreadLocal();</code></p>
+<p>线程安全要求每个线程都独立进行，所以req的创建也要求独立进行，所以ServletActionContext.getRequest()这句话不要放在构造函数中，也不要直接放在类中，而应该放在每个具体的方法体中(eg：login()、queryAll()、insert()等)，这样才能保证每次产生对象时独立的建立了一个req。</p>
+<blockquote>
+<p>[参考]{https://blog.csdn.net/lushuaiyin/article/details/7017931}</p>
+</blockquote>
+<h2 id="_1">正常业务里写存储过程和触发器多还是写在业务逻辑里多</h2>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../../Notes/EnglishNotes/" class="btn btn-neutral" title="EnglishNotes"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../../Notes/EnglishNotes/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+  
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>
