@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="RookieWutongshu">
+  <link rel="shortcut icon" href="../../favicon.ico">
+  
+  <title>SpringNotes - Welcome to RookieWutongshu's Blog</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "SpringNotes";
+    var mkdocs_page_input_path = "Notes\\spring.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Welcome to RookieWutongshu's Blog</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Notes Navigation</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../SQLNotes/">SQLNotes</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../EnglishNotes/">EnglishNotes</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">SpringNotes</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#spring">Spring笔记</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#spring_1">Spring的简介</a></li>
+        
+            <li><a class="toctree-l4" href="#spring_2">使用Spring原因</a></li>
+        
+            <li><a class="toctree-l4" href="#bean">Bean的各种属性</a></li>
+        
+            <li><a class="toctree-l4" href="#bean_1">Bean的作用域</a></li>
+        
+            <li><a class="toctree-l4" href="#bean_2">Bean的延迟加载</a></li>
+        
+            <li><a class="toctree-l4" href="#bean_3">Bean的生命周期</a></li>
+        
+            <li><a class="toctree-l4" href="#springbean">Spring生成bean的三种方式</a></li>
+        
+            <li><a class="toctree-l4" href="#bean_4">注册bean</a></li>
+        
+            <li><a class="toctree-l4" href="#dependency-injection">依赖注入(Dependency injection)</a></li>
+        
+            <li><a class="toctree-l4" href="#spring_3">Spring分配置文件的开发</a></li>
+        
+            <li><a class="toctree-l4" href="#_4">代理</a></li>
+        
+            <li><a class="toctree-l4" href="#aop">AOP面向切面（方面）编程</a></li>
+        
+            <li><a class="toctree-l4" href="#context-initialize">Context initialize</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#configurationclasses">@ConfigurationClasses</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#configuration">@Configuration</a></li>
+        
+            <li><a class="toctree-l4" href="#bean_5">@Bean</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#_12">事务</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#_13">属性</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#refers-to">Refers To</a></li>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../SpringMvc/">SpringMVCNotes</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Others</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../Others/Questions/">Questions</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Welcome to RookieWutongshu's Blog</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Notes Navigation &raquo;</li>
+        
+      
+    
+    <li>SpringNotes</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="spring">Spring笔记</h1>
+<p>[TOC]
+先写一遍中文的简略版，再添加官方文档整合成完整版</p>
+<h2 id="spring_1">Spring的简介</h2>
+<p>框架的主要优势是分层架构。即允许使用者选择使用哪一个组件。核心是IOC（用DI实现）和AOP</p>
+<p>EE开发：
+WEB层：SpringMVC
+业务层：Bean管理（IOC）
+持久层：Spring的JDBC模版，ORM模版用于整合其他持久层框架</p>
+<h2 id="spring_2">使用Spring原因</h2>
+<ul>
+<li>方便解耦，简化开发</li>
+</ul>
+<p>Spring 就是一个大工厂，可以将所有对象创建和依赖关系维护，交给 Spring 管理</p>
+<ul>
+<li>
+<p>AOP 编程的支持
+  Spring 提供面向切面编程，可以方便的实现对程序进行权限拦截、运行监控等功能</p>
+</li>
+<li>
+<p>声明式事务的支持
+  只需要通过配置就可以完成对事务的管理，而无需手动编程</p>
+</li>
+<li>
+<p>方便程序的测试
+  Spring 对 Junit4 支持，可以通过注解方便的测试 Spring 程序</p>
+</li>
+<li>
+<p>方便集成各种优秀框架
+  Spring 不排斥各种优秀的开源框架，其内部提供了对各种优秀框架（如：Struts、Hibernate、
+  MyBatis、Quartz 等）的直接支持</p>
+</li>
+<li>
+<p>降低 JavaEE API 的使用难度</p>
+</li>
+</ul>
+<p>Spring 对 JavaEE 开发中非常难用的一些 API（JDBC、JavaMail、远程调用等），都提供了封装，
+  使这些 API 应用难度大大降低</p>
+<h2 id="bean">Bean的各种属性</h2>
+<ul>
+<li><strong>id</strong>:唯一标识ID。需要以字母开头，由数字与字母、下划线、冒号组成<code>ac.getBean("idOrName");</code></li>
+<li><strong>name</strong>：别名，可为控制器指定多个别名，且可以有特殊字符。别名间可以通过逗号（，）分号（；）空格隔开。没设置id是name可当作id使用</li>
+<li><strong>class</strong>：指明bean来源，即实际路径</li>
+<li><strong>scope</strong>：指定bean作用域。包括：<strong>singleton</strong>:单例模式，使用该模式时，容器分配Bean时总会返回同个实例，为默认值。<strong>prototype</strong>:原型模式，每次通过容器调用getBean方法都会产生新的Bean实例。<strong>request</strong>：对于每次的HTTP请求，使用request定义的Bean都将产生一个新实例，即每次HTTP请求都会产生不同的Bean实例，存在request域中。只有在web应用中使用Spring，该作用域才有效。<strong>session</strong>：对于每次HTTP Session请求中，用Session定义的Bean都将产生一个新实例，存到session中。只有在web应用中使用Spring，该作用域才有效。<strong>globalSession</strong>：每个全局的Http Session对应一个Bean实例。典型情况下，仅在使用portlet context的时候有效。只有在web应用中使用Spring，该作用域才有效。如果你希望容器里的某个bean拥有某种新的web作用域，除了在bean级上配置相应的scope属性，还必须在容器级做一个额外的初始化配置。即在web应用的web.xml中增加这么一个 ContextListener：org.springframework.web.context.request.RequestContextListener</li>
+<li>如果你的类是有状态的 ，那就必须显示的设置为prototype了在ssh2 项目中，struts2的action交由spring管理的时候，spring默认是singleton的，而struts2的action显然是有状 态的，所以必须显示设置为scope="prototype"，prototype为原型模式，每次action请求过来都会创建一个action但是对那些Dao的实现类推介scope="singleton" ，因为这些类没有状态，用singleton只需维护一个实例，显然性能高一些</li>
+<li><strong>Property</strong>：spring的依赖注入用来为Bean的属性注入值。其中，<strong>name</strong>指定注入的类中的属性名，<strong>value</strong>指定注入的值，<strong>ref</strong>引用其他Bean的值。可用<code>&lt;value&gt;null&lt;/value&gt;</code>或<code>&lt;null/&gt;</code>代替value来设置空值</li>
+</ul>
+<h2 id="bean_1">Bean的作用域</h2>
+<p>注解的写法</p>
+<pre><code class="java">@Scope(&quot;sigleton&quot;)
+@Scope(scopeName=&quot;prototype&quot;)
+@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+</code></pre>
+
+<h2 id="bean_2">Bean的延迟加载</h2>
+<pre><code class="xml">&lt;bean id = &quot;1&quot; class=&quot;com.hello&quot; lazt-init=&quot;true&quot;&gt;
+</code></pre>
+
+<pre><code class="java">@Scope(&quot;singleton&quot;)
+@Lazy
+//只有bean为singleton时才可以选lazy
+</code></pre>
+
+<h2 id="bean_3">Bean的生命周期</h2>
+<p>通过配置<code>&lt;bean&gt;</code>标签上的 init-method 作为 Bean 的初始化的时候执行的方法，配置 destroy-method
+作为 Bean 的销毁的时候执行的方法。
+销毁方法想要执行，需要是单例创建的 Bean 而且在工厂关闭的时候，Bean 才会被销毁.</p>
+<blockquote>
+<p>Note:@PostConstruct和@PreDesytory都是method-level 级别的，要在类里写</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>基于xml</th>
+<th>基于注解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>init- method</td>
+<td>@PostConstruct</td>
+</tr>
+<tr>
+<td>destroy-method</td>
+<td>@PreDestroy</td>
+</tr>
+<tr>
+<td>bean来自第三方</td>
+<td>Bean实现类由用户开发</td>
+</tr>
+</tbody>
+</table>
+<h2 id="springbean">Spring生成bean的三种方式</h2>
+<ol>
+<li>
+<p>无参数构造方法的实例化</p>
+</li>
+<li>
+<p>静态工厂实例化。将类的创建过程封装在一个静态方法中。此种方法创建bean需指定拥有拥有方法的类名与指定工厂方法的名称<code>factory-method</code>,用<code>&lt;constrctor-arg&gt;</code>传递方法参数</p>
+</li>
+<li>
+<p>实例工厂实例化。将类的创建过程封装到另一个对象实例的方法中。此种方法创建bean需指定拥有该工厂方法的bean<code>&lt;factory-bean&gt;</code>和工厂方法名称<code>factory-method</code>与方法参数<code>construtor-arg</code></p>
+</li>
+</ol>
+<p><em>注意：静态工厂直接在bean本身的class注明即可，而实例工厂则需要先为实例工厂配置一个bean，然后将这个工厂bean在相应bean的factory-bean中指出。</em></p>
+<pre><code class="java">public class BeanFactory{
+    public static Bean2 getBean2(String message){
+        System.out.println(&quot;test&quot; + message)
+        return new Bean2();
+    }
+    public Bean3 get Bean3(){
+        return new Bean3();
+    }
+}
+</code></pre>
+
+<pre><code class="xml">&lt;!-- type1--&gt;
+&lt;bean id = &quot;bean1&quot; class= &quot;com.bean1&quot;&gt;&lt;/bean&gt;
+&lt;bean id = &quot;bean2&quot; class= &quot;com.Beanfactory&quot; factory-method=&quot;getBean2&quot;&gt;
+    &lt;constructor-arg index=&quot;0&quot;&gt;
+        &lt;value&gt;Hello,world&lt;/value&gt;
+    &lt;/constructor-arg&gt;
+&lt;/bean&gt;
+&lt;bean id = &quot;beanFactory&quot; class= &quot;com.BeanFactory&quot;&gt;&lt;/bean&gt;
+&lt;bean id = &quot;bean3&quot; factory-bean=&quot;beanFactory&quot; factory-method=&quot;getBean3&quot;&gt;&lt;/bean&gt;
+</code></pre>
+
+<h2 id="bean_4">注册bean</h2>
+<h3 id="xml">xml方式</h3>
+<p>简单这里不说</p>
+<h3 id="_1">注解注册</h3>
+<p>主要有四种注解可以注册bean(别在接口上弄)，每种注解可以任意使用，只是语义上有所差异：</p>
+<ul>
+<li>@Component：可以用于注册所有bean</li>
+<li>@Repository：主要用于注册持久层层的bean</li>
+<li>@Controller：主要用于注册控制层的bean</li>
+<li>@Service：主要用于注册服务层的bean</li>
+<li>@Bean与@Configuration一起使用。可根据不同情况配置bean的不同实现类（似乎经过了cglib增强，待补充）</li>
+</ul>
+<h2 id="dependency-injection">依赖注入(Dependency injection)</h2>
+<h3 id="_2">配置注入（结构清晰）</h3>
+<p><strong>(需要值的注入一般就用，如数据库连接类)</strong></p>
+<ul>
+<li>set注入(ref用于对象类型的注入)</li>
+</ul>
+<p>要求类有对应参数名的Sestter方法
+在配置文件中使用如下</p>
+<pre><code class="xml">&lt;bean id=&quot;food&quot; class=&quot;cn.wwt.Food&quot;&gt;
+    &lt;property name=&quot;foodname&quot;&gt;
+        &lt;value&gt;apple&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;property name=&quot;foodList&quot;&gt;
+    &lt;/property&gt;
+    &lt;property name=&quot;realityclass&quot; ref=&quot;otherBeanId&quot; /&gt;
+    &lt;!--如果Food中有对其他类的应用而property没有引入，则可以通过Autowired来搞，前提是其他类也有注册 --&gt;
+&lt;/bean&gt;
+</code></pre>
+
+<ul>
+<li>构造注入</li>
+</ul>
+<p>要求有非默认构造方法。例：</p>
+<pre><code class="xml">&lt;bean id=&quot;food&quot;&gt; class=&quot;cn.wwt.Food&quot;&gt;
+    &lt;constructor-arg index=&quot;0&quot;&gt;
+        &lt;value&gt;apple&lt;/value&gt;
+    &lt;/constructor-arg&gt;
+    &lt;constructor-arg name=&quot;message&quot;&gt;
+        &lt;ref&gt;otherbeanId&lt;/ref&gt;
+    &lt;/constructor-arg&gt;
+&lt;/bean&gt;
+</code></pre>
+
+<ul>
+<li>P命名空间的属性注入（Spring2.x以后）</li>
+</ul>
+<p>等价于set注入，在配置文件根元素 beans 引入 xmlns:p="http://www.springframework.org/schema/p"</p>
+<p><code>xml
+  &lt;bean id = "Food" p:foodname = "apple" p:type-ref = "apple" /&gt;
+  &lt;!-- 等价于下面这条--&gt;
+  &lt;bean id = "Food"&gt;
+    &lt;property name = "foodname" value = "apple" /&gt;
+      &lt;property name = "type" ref = "apple" /&gt;
+  &lt;/bean&gt;</code></p>
+<ul>
+<li>C命名空间的属性注入</li>
+</ul>
+<p>等价于构造注入，在配置文件根元素beans引入xmlns:c="http://www.springframework.org/schema/c"</p>
+<p><code>xml
+  &lt;bean id = "Food" c:foodColor = "red" c:type-ref = "apple" /&gt;
+  &lt;!--等价于 --&gt;
+  &lt;bean id = "Food"&gt;
+    &lt;constructor-arg name = "foodColor" value = "red" /&gt;
+      &lt;constructor-arg name = "type" ref = "apple" /&gt;
+  &lt;/bean&gt;</code></p>
+<ul>
+<li>SpEL  的方式的属性注入:Spring3.x  版本后提供的方式</li>
+</ul>
+<p><code>xml
+  &lt;bean id = "car" class = "com.car" /&gt;
+  &lt;bean id = "carInfo" class = "com.carInfo" /&gt;
+  &lt;bean id = "person" class = "com.person" &gt;
+    &lt;property name = "name" value = "#{'WanYI'}" /&gt;
+      &lt;property name = "car" value = "#{car}" /&gt;
+      &lt;property name = "carName" value = "#{carInfo.carName}" /&gt;
+      &lt;property name = "price" value ="#{car.caculatePrice()}" /&gt;
+      &lt;!-- 有单引号是String，无单引号的不是数字就是BeanId--&gt;
+  &lt;/bean&gt;</code></p>
+<ul>
+<li>复杂类型注入</li>
+</ul>
+<p><code>xml
+  &lt;!-- List与数组类型--&gt;
+  &lt;property name = "list/arrs"&gt;
+      &lt;list&gt;
+          &lt;value&gt;1&lt;/value&gt;&lt;value&gt;2&lt;/value&gt;
+      &lt;/list&gt;
+  &lt;/property&gt;
+  &lt;!-- Map类型--&gt;
+  &lt;property name = "map"&gt;
+      &lt;map&gt;
+          &lt;entry key = "aaa" value = "111" /&gt;
+          &lt;entry key = "bbb" value = "222" /&gt;
+      &lt;/map&gt;
+  &lt;/property&gt;
+  &lt;!-- Properties类型--&gt;
+  &lt;property name = "properties"&gt;
+      &lt;props&gt;
+          &lt;prop key = "username"&gt;root&lt;/prop&gt;
+          &lt;prop key = "password"&gt;123&lt;/prop&gt;
+      &lt;/props&gt;
+  &lt;/property&gt;</code></p>
+<ul>
+<li>util命名空间注入(写在bean的前缀)</li>
+</ul>
+<p>```xml
+  <util:list id = "tarcklist">
+    <value>1</value><value>2</value>
+  </util:list>
+  <bean id = "1" p:tracklist-ref = "tarcklist">
+    <!-- <property name = "tarcklist">
+        <list>
+            <value>1</value><value>2</value>
+        </list>
+    </property> --></p>
+<p></bean>
+  ```</p>
+<h3 id="_3">注解注入（开发方便 ）</h3>
+<p><strong>(无具体值，只用方法的类。如Controller和Service)</strong></p>
+<p>简单了解bean的一个属性autowire（不是@Autowired），autowire主要有三个属性值：constructor，byName，byType。</p>
+<ul>
+<li>constructor：通过构造方法进行自动注入，spring会匹配与构造方法参数类型一致的bean进行注入，如果有一个多参数的构造方法，一个只有一个参数的构造方法，在容器中查找到多个匹配多参数构造方法的bean，那么spring会优先将bean注入到多参数的构造方法中。</li>
+<li>byName：被注入bean的id名必须与set方法后半截匹配，并且<strong>id名称的第一个单词首字母必须小写</strong>，这一点与手动set注入有点不同。</li>
+<li>byType：查找所有的set方法，将符合参数类型的bean注入。</li>
+<li>required:true | false用来表示某元素是否是在运行时的必须存在元素</li>
+</ul>
+<p>​    描述依赖关系的注解</p>
+<ul>
+<li>
+<p>@Resource：java的注解，默认以byName的方式去匹配与属性名相同的bean的id，如果没有找到就会以byType的方式查找，如果byType查找到多个的话，使用@Qualifier注解（spring注解）指定某个具体名称的bean。<code>@Resource(name="classname")</code></p>
+</li>
+<li>
+<p>@Autowired：spring注解，默认是以byType的方式去匹配类型相同的bean，如果只匹配到一个，那么就直接注入该bean，无论要注入的 bean 的 name 是什么；如果匹配到多个，就会调用 DefaultListableBeanFactory 的 determineAutowireCandidate 方法来决定具体注入哪个bean。</p>
+</li>
+<li>
+<p>先找 Bean 上有@Primary 注解的，有则直接返回 bean 的 name。</p>
+</li>
+<li>
+<p>再找 Bean 上有 @Order，@PriorityOrder 注解的，有则返回 bean 的 name。</p>
+</li>
+<li>
+<p>最后再以名称匹配（<strong>ByName</strong>）的方式去查找相匹配的 bean。（若搭配@Qualifier则直接以byName形式）</p>
+</li>
+</ul>
+<p>使用场景：构造方法上（最快），直接成员变量，set方法或写个初始化变量的方法</p>
+<p>@Autowired属性，required = "true/false",被注入的属性在Bean创建之初是否是必须被注入(找不到类)，可以在设置为false后在业务逻辑里加个非空判断再执行相应功能</p>
+<h3 id="autowired">@Autowired的歧义性</h3>
+<p>如同一个接口有多个实现类，且这些类上还都@Component,这时就会报错，可以1. 设置@Primary设置首选项，当然首选项也不能设置多个。2. 那么在有多个实现类的时候可以使用<strong>限定符</strong>@Qualifier分别给实现类设置修饰语，在接口要注入时再用@Qulifier做指定。3. 或直接在@Component里直接设置id<code>@Componet("aa")</code>,注入时仍用@Qualifier。Spring默认id是类名首字母小写。</p>
+<h2 id="spring_3">Spring分配置文件的开发</h2>
+<ul>
+<li>创建工厂时加载多个配置文件</li>
+</ul>
+<p><code>java
+  ApplicationContext applicationContext = new ClassPathXmlApplicationContext("context1.xml",“context2.xml”);</code></p>
+<ul>
+<li>在一个配置文件中包含另一个</li>
+</ul>
+<p><code>xml
+  &lt;import resource = "context2.xml" /&gt;</code></p>
+<h2 id="_4">代理</h2>
+<h3 id="_5">静态代理</h3>
+<p>代理类和被代理类实现同一个接口。在被代理类中写实现代码。然后在代理类中写需要代理增加的方法。实际运用时，新建被代理类对象，用来作为代理类对象新建，并把代理类对象赋给实现接口。这样在使用接口方法时，会使用代理类对象的方法，而代理类对象里的接口方法又会调用被代理类的实现代码。不过当实现方法较多时就建议使用动态代理了。</p>
+<h3 id="_6">动态代理</h3>
+<p>利用reflect里的proxy接口
+与静态代理大同小异，不同的是代理类通过实现<code>InvocationHandler</code>（调用处理）接口，以实现对被代理类的方法的调用。这是InvocationHandler.接口说明：Each proxy instance has an associated invocation handler. When a method is invoked on a proxy instance, the method invocation is encoded and dispatched to the invoke method of its invocation handler.
+记住一点，在invoke方法是对象是被代理对象而不是代理对象。贴一段示例代码：</p>
+<pre><code class="java">package cn.wwt.proxy;
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
+public class DynamaticProxy implements InvocationHandler {
+    private Object obj;
+    public Object bind(Object obj){
+        this.obj=obj;
+        return Proxy.newProxyInstance(obj.getClass().getClassLoader(),obj.getClass().getInterfaces(),this);
+    }//bind无所谓，真正要实现的是invoke
+    public Object invoke(Object proxy, Method method,Object[] objs) throws Throwable{
+        try{
+            validate();
+            return method.invoke(obj,objs);
+        }catch (Exception e){
+        e.printStackTrace();
+        }
+    }
+    public void validate(){
+        System.out.println(&quot;校验中&quot;);
+    }
+}
+</code></pre>
+
+<p>或者</p>
+<pre><code class="java">// 1. 首先实现一个InvocationHandler，方法调用会被转发到该类的invoke()方法。
+class LogInvocationHandler implements InvocationHandler{
+    ...
+    private Hello hello;
+    public LogInvocationHandler(Hello hello) {
+        this.hello = hello;
+    }
+    @Override
+    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+        if(&quot;sayHello&quot;.equals(method.getName())) {
+            logger.info(&quot;You said: &quot; + Arrays.toString(args));
+        }
+        return method.invoke(hello, args);
+    }
+}
+// 2. 然后在需要使用Hello的时候，通过JDK动态代理获取Hello的代理对象。
+Hello hello = (Hello)Proxy.newProxyInstance(
+    getClass().getClassLoader(), // 1. 类加载器
+    new Class&lt;?&gt;[] {Hello.class}, // 2. 代理需要实现的接口，可以有多个
+    new LogInvocationHandler(new HelloImp()));// 3. 方法调用的实际处理者
+System.out.println(hello.sayHello(&quot;I love you!&quot;));
+</code></pre>
+
+<p>cglib动态代理</p>
+<pre><code class="java">// CGLIB动态代理
+// 1. 首先实现一个MethodInterceptor，方法调用会被转发到该类的intercept()方法。
+class MyMethodInterceptor implements MethodInterceptor{
+  ...
+    @Override
+    public Object intercept(Object obj, Method method, Object[] args, MethodProxy proxy) throws Throwable {
+        logger.info(&quot;You said: &quot; + Arrays.toString(args));
+        return proxy.invokeSuper(obj, args);
+    }
+}
+// 2. 然后在需要使用HelloConcrete的时候，通过CGLIB动态代理获取代理对象。
+Enhancer enhancer = new Enhancer();
+enhancer.setSuperclass(HelloConcrete.class);
+enhancer.setCallback(new MyMethodInterceptor());
+
+HelloConcrete hello = (HelloConcrete)enhancer.create();
+System.out.println(hello.sayHello(&quot;I love you!&quot;));
+</code></pre>
+
+<p>refers to:<a href="https://www.cnblogs.com/CarpenterLee/p/8241042.html">Java Proxy和CGLIB动态代理原理</a></p>
+<h2 id="aop">AOP面向切面（方面）编程</h2>
+<h3 id="_7">概念</h3>
+<p>灵活处理一些有横切性质的系统级服务，如权限校验，日志记录，性能监控，安全检查，缓存及事务处理
+1.如验证用户方法这种被运用与各个处理流程中的方法，被称为<strong>横切关注点(Cross-cutting concern)</strong>
+2.将散落与各个业务类中的横切关注点收集起来写成独立可重用的类，即<strong>横切关注面(Aspect)</strong>.与服务相关的api不出现于可重用的应用组件中，可提高组件的重用性。且将这些组件用于其他应用程序中不会因加入某服务与现有框架而发生耦合。
+不同AOP框架对于AOP的实现不同，主要是在于提供的Aspect的丰富程度，以及如何被<strong>缝合(Weave)</strong>到程序中
+3.<strong>连接点(Join point)</strong>程序中的某个点，连接点用系统提供的关键字来表示，如call表示方法调用连接点，用execution表示方法执行连接点。连接点无法单独存在，需与一定上下文结合</p>
+<p>AspectJ主要有这几种</p>
+<pre><code>-方法调用：方法被调用时。
+-方法执行：方法体的内容执行时。
+-构造方法调用：构造方法被调用时。
+-构造方法执行：构造方法体的内容执行时。
+-静态初始化部分执行：类中的静态部分内容初始化时。
+-对象预初始化：主要是指执行构造方法中的this()及super()时。
+-对象初始化：在初始化一个类时。
+-属性引用：引用属性时。
+-属性设置：设置属性时。
+-异常执行：异常执行时。
+-通知执行：当一个AOP通知执行时。
+</code></pre>
+
+<p>4.<strong>切入点（Pointcuts）</strong> 即连接点的集合，也可以说是程序中需要注入advice的位置的集合，指明advice要在什么条件下触发。
+5.<strong>通知(Advice)</strong>定义了切面中的实际实现，指在定义好的切入点处所有的执行的程序代码。spring提供了3种：
+<em> Before Advice.在连接点前先执行advice的代码。实现<code>MethodBeforeAdvice</code>接口
+</em> After Advice.连接点执行后再执行advice的代码.后置通知包括连接点正常返回advice<code>(AfterReturningAdvice)</code>，和异常返回advice.<code>ThrowAdvice</code>
+* Throw Advice.功能强大。可自由改变程序流程、连接点返回值等。除了可自由加需要的横切功能以外，还需要负责主动调用连接点。<code>MethodInterceptor</code>
+  6.<strong>拦截器(Interceptor)</strong> 对连接点进行拦截，从而在连接点前后加自定义的切面模块功能。如实现对字段访问级方法调用的拦截
+  7.<strong>目标对象(Target Object)</strong>.指在基于拦截器机制实现的AOP框架中，在拦截器链上最末端的对象实例。一般值实际业务对象
+  8.<strong>AOP代理</strong> 指在基于拦截器机制实现的AOP框架中，实际对象的代理对象。spring中的AOP代理可以使用jdk动态代理也可以使用CGLib代理。前者是实现了接口的目标对象的代理，后者是不实现接口的目标带线的代理。</p>
+<p>### Sping 1.x对AOP的支持
+  #### 对目标整个实体类进行拦截
+  前置通知，后置通知，环绕通知与异常通知（未完待续）
+  使用方法，在applicationContext.xml(或其他名字，只要在引用的时候记住)注册代理类，被代理类，通知类。在被代理类中要加实现接口、代理使用的通知类,目标代理类。示例：</p>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+       xmlns:p=&quot;http://www.springframework.org/schema/p&quot;
+       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&quot;&gt;
+
+    &lt;bean id=&quot;beforeAdvice&quot; class=&quot;cn.wwt.advice.beforeAdvice&quot; /&gt;通知类
+    &lt;bean id=&quot;afterAdvice&quot; class=&quot;cn.wwt.advice.AfterAdvice&quot; /&gt;
+    &lt;bean id=&quot;aroundAdvive&quot; class=&quot;cn.wwt.advice.AdviceAround&quot; /&gt;
+    &lt;bean id=&quot;throwAdvice&quot; class=&quot;cn.wwt.advice.AdviceThrow&quot; /&gt;
+    &lt;bean id=&quot;hello&quot; class=&quot;cn.wwt.bean.Hello&quot;&gt;&lt;/bean&gt;被代理类
+    &lt;bean id=&quot;proxy&quot; class=&quot;org.springframework.aop.framework.ProxyFactoryBean&quot;&gt;代理类(接口实现类)
+        &lt;property name=&quot;proxyInterfaces&quot;&gt;
+            &lt;value&gt;cn.wwt.bean.IHello&lt;/value&gt;
+        &lt;/property&gt;
+        &lt;property name=&quot;target&quot; ref=&quot;hello&quot;&gt;&lt;/property&gt;
+        &lt;property name=&quot;interceptorNames&quot;&gt;
+            &lt;list&gt;
+                &lt;value&gt;beforeAdvice&lt;/value&gt;
+                &lt;value&gt;afterAdvice&lt;/value&gt;
+                &lt;value&gt;aroundAdvive&lt;/value&gt;
+                &lt;value&gt;throwAdvice&lt;/value&gt;
+            &lt;/list&gt;
+        &lt;/property&gt;
+    &lt;/bean&gt;
+&lt;/beans&gt;
+</code></pre>
+
+<p>其中异常通知在执行后仍会抛出异常，通过自定义异常，借助异常通知来抛出即可找到异常的所在
+通知类代码：</p>
+<pre><code class="java">public class beforeAdvice implements MethodBeforeAdvice {
+    @Override
+    public void before(Method method, Object[] objects, Object o) throws Throwable{
+        System.out.println(&quot;执行前&quot;);
+    }
+}
+public class AdviceThrow implements ThrowsAdvice {
+    public void afterThrowing(Throwable throwable){
+        System.out.println(&quot;有异常抛出&quot;);
+    }
+}
+public class AfterAdvice implements AfterReturningAdvice {
+    @Override
+    public void afterReturning(Object o, Method method, Object[] objects, Object o1) throws Throwable{
+        System.out.println(&quot;执行后&quot;);
+    }
+}
+public class AdviceAround implements MethodInterceptor {
+    @Override
+    public Object invoke(MethodInvocation methodInvocation) throws Throwable{
+        Object result=null;
+        System.out.println(&quot;环绕执行前&quot;);
+        try{
+            result=methodInvocation.proceed();调用目标对象的方法
+        }finally {
+            System.out.println(&quot;环绕执行后&quot;);
+        }
+        return null;
+    }
+}
+</code></pre>
+
+<h4 id="_8">对目标特定方法拦截</h4>
+<ul>
+<li>使用NameMatchMethodPointcutAdvisor.注册被代理类，通知类不变。新增通知类，并将其加入代理类的拦截器部分里，其他不变</li>
+</ul>
+<pre><code class="xml">&lt;bean id=&quot;helloAdvice&quot; class=&quot;org.springframework.aop.support.NameMatchMethodPointcutAdvisor&quot;&gt;
+        &lt;property name=&quot;mappedName&quot; value=&quot;*2&quot;&gt;&lt;/property&gt;&lt;!-- 配置要执行通知的方法，这里是方法名带有2--&gt;
+        &lt;property name=&quot;advice&quot; ref=&quot;aroundAdvive&quot;&gt;&lt;/property&gt;&lt;!-- 配置要执行的通知类--&gt;
+    &lt;/bean&gt;
+</code></pre>
+
+<ul>
+<li>使用RegexpMehodPointAdvisor,使用正则表达式来定义要执行的方法。基本与NameMatchMethodPointcutAdvisor一样</li>
+</ul>
+<pre><code class="xml">&lt;bean id=&quot;regexAdvice&quot; class=&quot;org.springframework.aop.support.RegexpMethodPointcutAdvisor&quot;&gt;
+        &lt;property name=&quot;pattern&quot; value=&quot;.*2&quot;&gt;&lt;/property&gt;
+        &lt;property name=&quot;advice&quot; ref=&quot;afterAdvice&quot;&gt;&lt;/property&gt;
+&lt;/bean&gt;
+</code></pre>
+
+<h3 id="spring2xaop">Spring2.X对于AOP的支持</h3>
+<h4 id="xml-schema">基于XML Schema的通知</h4>
+<p>在配置文件中注册通知类与接口实现类。现在的通知类不需要实现任何接口。但首先要在Beans属性里加几个命名空间</p>
+<pre><code>xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot;
+xsi:schemaLocation=&quot;http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd&quot;
+</code></pre>
+
+<p>然后则是配置<code>&lt;aop:config&gt;</code>，配置方法如下</p>
+<pre><code>&lt;aop:config&gt;
+    &lt;aop:pointcut id=&quot;pointcutName&quot; expression=&quot;匹配切入点的正则表达式&quot; /&gt;
+    &lt;aop:advisor id=&quot;advisorName&quot; pointcut-ref=&quot;pointcutName&quot;/&gt;
+    &lt;aop:aspect id=&quot;aspectName&quot; ref=&quot;adviceBeanName&quot;&gt;
+        &lt;aop:adviceType pointcut-ref=&quot;应用的poincutName&quot; method=&quot;adviceBean里的方法名&quot; /&gt;
+    &lt;/aop:aspect&gt;
+&lt;/aop:config&gt;
+</code></pre>
+
+<p><code>aop:pointcut</code>用来配置aop的正则表达式。<code>aop:advisor</code>配置aop的切面，与pointcut相同，可以用advisor的id来音引用该切面。<code>aop:aspect</code>用来配置切面，ref指定通知类，advicetype指用的通知类型，如aop:before,aop:after,aop:around,aop:after-throwing.pointcut-ref引用一个pointcut，method指定应用的通知类中的方法。
+注意在配置正则表达式是要在“*”与后面的接口间有一个空格，否则会提示正则表达式错误。
+示例：</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+       xmlns:p=&quot;http://www.springframework.org/schema/p&quot;
+       xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot;
+       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd&quot;
+&gt;
+    &lt;bean id=&quot;beforeAdvice&quot; class=&quot;cn.wwt.advice2.AdviceBeforeHello&quot; /&gt;
+    &lt;aop:config&gt;
+        &lt;aop:pointcut id=&quot;beforePointcit&quot; expression=&quot;execution(* cn.wwt.bean.IHello.*(..))&quot; /&gt;&lt;!-- 若改成cn.wwt.bean.IHellO.sayHello1(..)就实现了指对一个方法匹配--&gt;
+        &lt;aop:aspect id=&quot;before&quot; ref=&quot;beforeAdvice&quot;&gt;
+            &lt;aop:before method=&quot;before&quot; pointcut-ref=&quot;beforePointcit&quot; /&gt;
+        &lt;/aop:aspect&gt;
+    &lt;/aop:config&gt;
+    &lt;bean id=&quot;hello&quot; class=&quot;cn.wwt.bean.Hello&quot;&gt;&lt;/bean&gt;
+
+&lt;/beans&gt;
+</code></pre>
+
+<h4 id="_9">基于注解的通知</h4>
+<p>首先惯例地加命名空间：<code>xmlns:aop="http://www.springframework.org/schema/aop" xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd"</code>
+然后是直接在advice类加注解。</p>
+<ul>
+<li>@Aspect标签表示该<strong>类</strong>是一个Aspect</li>
+<li>@Before标签表名该<strong>方法</strong>是一个前置通知，里面直接写正则表达式，与xmlSchema里的写法一样,如"execution(<em> cn.wwt.bean.IHello.</em>(..))"</li>
+<li>@AfterReturning</li>
+<li>@Around</li>
+<li>@AfterThrowing</li>
+</ul>
+<p>最后在spring核心配置文件设置aop自动代理<code>&lt;aop:aspectj-autoproxy /&gt;</code></p>
+<h3 id="_10">底层实现</h3>
+<p>SpringAOP底层用了两种代理机制：</p>
+<ul>
+<li>JDK的动态代理：针对接口实现类产生代理</li>
+<li>Cglib的动态代理：针对非接口实现类产生代理。运用了字节码增强的技术，生成当前类的子类对象</li>
+</ul>
+<pre><code class="java">public class CustomInvocationHandler implements InvocationHandler {  
+    private Object target;  
+
+    public CustomInvocationHandler(Object target) {  
+        this.target = target;  
+    }  
+
+    @Override  
+    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {  
+        System.out.println(&quot;Before invocation&quot;);  
+        Object retVal = method.invoke(target, args);  
+        System.out.println(&quot;After invocation&quot;);  
+        return retVal;
+    }  
+}  
+//使用时
+public class Apptest{
+    public static void main(String[] args){
+        CustomInvovationHandler handler = new CustomerInvocationHandler(new PersionImpl());
+        //Person 为接口
+        Person proxy = new Proxy.newProxyInstance(Apptest.class.getClassLoader,new Class[]{
+            Person.class,handler
+        });
+        Persion.getName();
+    }
+}
+</code></pre>
+
+<blockquote>
+<p>[reference]{https://blog.csdn.net/zhangdefeng2008/article/details/79399898}</p>
+</blockquote>
+<h2 id="context-initialize">Context initialize</h2>
+<p>与xml相对的注解形式。</p>
+<pre><code class="java">//会扫描所有带Component的注解的类,value代表扫描的包路径
+@ComponentScan(value = &quot;BasePackageLocation&quot;)
+public class SpringApplication{
+    public static void main(String[] args){
+        ApplicationContext context = new AnnotationConfigApplicationContext(SpringApplication.class);
+        HelloWorld a = context.getBean(&quot;HelloWorld.class&quot;);
+        //这里的HelloWorld已经在其Impl类写好对应注解
+    }
+}
+</code></pre>
+
+<h1 id="configurationclasses">@ConfigurationClasses</h1>
+<p>The central artifact(手工艺品) in Spring JavaConfig is the @Configuration-annotated class. These classes consist pricipally(主要) of @Bean-annotated methods that define instantiation(实例化), configuration, and initialization logic for objects that will be managed by the Spring IoC container.</p>
+<h2 id="configuration">@Configuration</h2>
+<p>Annotating a class with @Configuration indicate that the class may be used  by JavaConfig as a source of bean definitions.</p>
+<pre><code class="java">@Configuration(defaultAutowire = Autowire.BY_TYPE,defaultLazy = Lazy.FALSE)
+@ComponentScan(&quot;com.web&quot;) | @ComponentScan(basePackages = {&quot;package1&quot;,&quot;package2&quot;}) |
+    @ComponentScan(basePackageClasses = {class1.class,class2.class,class3.class})
+public class AppConfig{
+  //当然了，对应的类要加@Component或者上面个basePackage的路径  
+}
+
+//要用到的类
+public class ApplicationTest{
+    ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+    Hello hello = context.getBean(Hello.class);
+}
+//或者在单元测试时
+@RunWith(SpringJUnit4Runner.class)
+@ContextConfiguration(classes = AppConfig.class)
+</code></pre>
+
+<h2 id="bean_5">@Bean</h2>
+<p><code>@Bean</code> is a method-level annotation and a direct analog of the XML <code>&lt;bean/&gt;</code> element. The annotation supports most of the attributes offered by <code>&lt;bean/&gt;</code>, such as: <code>init-method</code>, <code>destroy-method</code>, <code>autowiring</code>, <code>lazy-init</code>, <code>dependency-check</code>, <code>depends-on</code> and <code>scope</code>.</p>
+<h3 id="declaring-a-bean">declaring a bean</h3>
+<p>To declare a bean, simply annotate a method with the <code>@Bean</code> annotation. When JavaConfig encounters such a method, it will execute that method and register the return value as a bean within a <code>BeanFactory</code>. By default, the bean name will be the same as the method name (see <a href="https://docs.spring.io/spring-javaconfig/docs/1.0.0.M4/reference/html/ch02s02.html">bean naming</a> for details on how to customize this behavior). The following is a simple example of a <code>@Bean</code> method declaration:</p>
+<p>在遇到需要自动装配一些第三方的包的对象的时候，我们无法在已封装好的类上加@Component,此时可以在配置类中这么写。</p>
+<pre><code class="java">@Configuration
+public class AppConfig {
+    @Bean
+    public TransferService transferService() {
+        return new TransferServiceImpl();
+    }
+}
+</code></pre>
+
+<p>the configuration above is exactly equivalent to the following Spring XML:</p>
+<pre><code class="xml">&lt;beans&gt;
+    &lt;bean name=&quot;transferService&quot; class=&quot;com.acme.TransferServiceImpl&quot;/&gt;
+&lt;/beans&gt;
+</code></pre>
+
+<p>Both will result in a bean named <code>transferService</code> being available in the <code>BeanFactory</code> / <code>ApplicationContext</code>, bound to an object instance of type <code>TransferServiceImpl</code>:<code>transferService -&gt; com.acme.TransferServiceImpl</code></p>
+<p>通过构造函数依赖或setter注入</p>
+<p>如，bean1，bean2里有一个属性bean1，在bean2的构造函数里写bean1，然后在配置类中注入。若使用setter方法也是类似</p>
+<pre><code class="java">@Configuration
+public class AppConfig {
+    @Bean
+    @Primary
+    //@Qualifier(&quot;normal&quot;)
+    public BookDao bookDao1() {
+        return new BookDaoNormal();
+    }
+    @Bean(&quot;Cache&quot;)
+    public BookDao bookDao2() {
+        return new BookDaoCache();
+    }
+    @Bean
+    public UserService userService(@Qualifier(&quot;book1&quot;) BookDao bookDao) {
+        return new UserService(bookDao);
+    }
+    @Bean
+    public UserService2 userService2(@Qulifier(&quot;Cache&quot;) BookDao bookDao) {
+        UserService2 userService2 = new UserService2();
+        userService2.setBookDao(bookDao);
+        return userService2;
+    }
+}
+</code></pre>
+
+<p>//此处实际上bookDao 方法也只执行了一编，因为spring对于@Bean有拦截，发现容器已有实例不会再创建</p>
+<h3 id="tips">tips：</h3>
+<p>所以包要是统一版本</p>
+<h4 id="_11">可能错误：</h4>
+<p>Error creating bean with name 'org.springframework.aop.aspectj.AspectJPointcutAdvisor#0':
+缺包：com.springsource.org.aspectj.weaver-1.6.8.RELEASE</p>
+<h1 id="_12">事务</h1>
+<p>数据库事务(Database Transaction) ，是指作为单个逻辑工作单元执行的一系列操作，要么完全地执行，要么完全地不执行。 事务处理可以确保除非事务性单元内的所有操作都成功完成，否则不会永久更新面向数据的资源。</p>
+<h2 id="_13">属性</h2>
+<p>@required</p>
+<h1 id="refers-to">Refers To</h1>
+<blockquote>
+<p><a href="https://docs.spring.io/spring-javaconfig/docs/1.0.0.M4/reference/html/ch02.html">docs.spring.io</a></p>
+</blockquote>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../SpringMvc/" class="btn btn-neutral float-right" title="SpringMVCNotes">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../EnglishNotes/" class="btn btn-neutral" title="EnglishNotes"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../EnglishNotes/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../SpringMvc/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>

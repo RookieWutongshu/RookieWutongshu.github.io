@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="RookieWutongshu">
+  <link rel="shortcut icon" href="../../favicon.ico">
+  
+  <title>SpringMVCNotes - Welcome to RookieWutongshu's Blog</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "SpringMVCNotes";
+    var mkdocs_page_input_path = "Notes\\SpringMvc.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Welcome to RookieWutongshu's Blog</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Notes Navigation</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../SQLNotes/">SQLNotes</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../EnglishNotes/">EnglishNotes</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../spring/">SpringNotes</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">SpringMVCNotes</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#springmvc">SpringMvc笔记</a></li>
+    
+
+    <li class="toctree-l3"><a href="#_1">原初笔记</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#_2">执行流程</a></li>
+        
+            <li><a class="toctree-l4" href="#_3">回显</a></li>
+        
+            <li><a class="toctree-l4" href="#_4">弄个异常处理器</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#basic-config">Basic config</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#maven-dependencies">maven dependencies</a></li>
+        
+            <li><a class="toctree-l4" href="#webxml">web.xml</a></li>
+        
+            <li><a class="toctree-l4" href="#_5">控制器类</a></li>
+        
+            <li><a class="toctree-l4" href="#contextconfig">Contextconfig文件的写法</a></li>
+        
+            <li><a class="toctree-l4" href="#requestbodyresponsebody">注解之@RequestBody和@ResponseBody</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#introduction-to-spring-web-mvc-framework">Introduction to Spring Web MVC framework</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#define-any-controller-method-signature-by-using-annotations">Define any controller method signature  by using annotations</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#requestmappings-request-value-and-request-headers-expression">RequestMapping's  request value and request headers expression:</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#return-type-in-mvc-method">Return type in MVC method</a></li>
+        
+            <li><a class="toctree-l4" href="#some-java-native-api">Some java native api</a></li>
+        
+            <li><a class="toctree-l4" href="#design-a-restftul-application">Design a restftul application</a></li>
+        
+            <li><a class="toctree-l4" href="#custom-converter">Custom converter</a></li>
+        
+            <li><a class="toctree-l4" href="#handle-exception">Handle exception</a></li>
+        
+            <li><a class="toctree-l4" href="#intercepting-requests-with-a-handlerinterceptor">Intercepting requests with a HandlerInterceptor</a></li>
+        
+            <li><a class="toctree-l4" href="#springs-multipart-file-upload-support">Spring’s multipart (file upload) support</a></li>
+        
+            <li><a class="toctree-l4" href="#jason-and-jasonp">jason and jasonp</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#crm-example-website">CRM Example Website</a></li>
+    
+
+    <li class="toctree-l3"><a href="#restful-api">Restful API</a></li>
+    
+
+    <li class="toctree-l3"><a href="#some-question-you-may-meet">Some  Question you may meet</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#messy-code-when-use-get-method">messy code when use GET method</a></li>
+        
+            <li><a class="toctree-l4" href="#jsp-page-could-not-use-el">jsp page could not use EL</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#refers">Refers</a></li>
+    
+
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Others</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../Others/Questions/">Questions</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Welcome to RookieWutongshu's Blog</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Notes Navigation &raquo;</li>
+        
+      
+    
+    <li>SpringMVCNotes</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="springmvc">SpringMvc笔记</h1>
+<div class="toc">
+<ul>
+<li><a href="#springmvc">SpringMvc笔记</a></li>
+<li><a href="#_1">原初笔记</a><ul>
+<li><a href="#_2">执行流程</a></li>
+<li><a href="#_3">回显</a></li>
+<li><a href="#_4">弄个异常处理器</a></li>
+</ul>
+</li>
+<li><a href="#basic-config">Basic config</a><ul>
+<li><a href="#maven-dependencies">maven dependencies</a></li>
+<li><a href="#webxml">web.xml</a></li>
+<li><a href="#_5">控制器类</a></li>
+<li><a href="#contextconfig">Contextconfig文件的写法</a></li>
+<li><a href="#requestbodyresponsebody">注解之@RequestBody和@ResponseBody</a></li>
+</ul>
+</li>
+<li><a href="#introduction-to-spring-web-mvc-framework">Introduction to Spring Web MVC framework</a><ul>
+<li><a href="#define-any-controller-method-signature-by-using-annotations">Define any controller method signature  by using annotations</a><ul>
+<li><a href="#requestparam">@RequestParam</a></li>
+<li><a href="#pathvariable">@PathVariable</a></li>
+<li><a href="#other-annotation">Other annotation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#requestmappings-request-value-and-request-headers-expression">RequestMapping's  request value and request headers expression:</a><ul>
+<li><a href="#return-type-in-mvc-method">Return type in MVC method</a></li>
+<li><a href="#some-java-native-api">Some java native api</a></li>
+<li><a href="#design-a-restftul-application">Design a restftul application</a><ul>
+<li><a href="#design">Design</a></li>
+</ul>
+</li>
+<li><a href="#custom-converter">Custom converter</a></li>
+<li><a href="#handle-exception">Handle exception</a></li>
+<li><a href="#intercepting-requests-with-a-handlerinterceptor">Intercepting requests with a HandlerInterceptor</a></li>
+<li><a href="#springs-multipart-file-upload-support">Spring’s multipart (file upload) support</a></li>
+<li><a href="#jason-and-jasonp">jason and jasonp</a><ul>
+<li><a href="#question-about-locationto-be-alter">Question about location(To be alter)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#crm-example-website">CRM Example Website</a></li>
+<li><a href="#restful-api">Restful API</a></li>
+<li><a href="#some-question-you-may-meet">Some  Question you may meet</a><ul>
+<li><a href="#messy-code-when-use-get-method">messy code when use GET method</a></li>
+<li><a href="#jsp-page-could-not-use-el">jsp page could not use EL</a></li>
+</ul>
+</li>
+<li><a href="#refers">Refers</a></li>
+</ul>
+</div>
+<p>org.springframework.validation.BindException</p>
+<p>结合之前的笔记目前还夹杂一些中文，等有时间结合官方文档重构一份英文的</p>
+<h1 id="_1">原初笔记</h1>
+<h2 id="_2">执行流程</h2>
+<p><img alt="" src="805849-20160112163413397-1076564387.png" /></p>
+<h2 id="_3">回显</h2>
+<p>springmvc默认对pojo数据进行回显。pojo数据传入controller方法后，springmvc自动将pojo数据放到request域，key等于pojo类型（首字母小写），页面只需要写参数的属性就可以实现绑定。</p>
+<h2 id="_4">弄个异常处理器</h2>
+<p>实现HandlerExceptionResolver接口，并在spring中注册,然后重写方法</p>
+<pre><code class="java">public class AAExceptionResolver implements HandlerException{
+
+    @Override
+    public ModelANdView resolveException(HttpServletRequest request,HttpServletResponse response,Object handler,Exception ex){
+    String msg=&quot;&quot;;
+    if(ex instanceof AAException){
+    msg = ((AAException)ex).getMessage();
+    }
+    else{msg=&quot;位置error&quot;;}
+    ModelAndView mv=new ModelAndView();
+    mv.setViewName(&quot;error&quot;);
+    return mv;
+    }
+}
+</code></pre>
+
+<p>通过注解的方式写异常处理</p>
+<pre><code class="java">// 第一种方式: 返回到错误页面,不带异常信息
+    @ExceptionHandler(value={ArithmeticException.class})
+    public String dealHandlerExceptionResolver(Exception e){
+
+        System.out.println(&quot;111111&quot;+e.getMessage());
+        return &quot;error&quot;;
+    }
+</code></pre>
+
+<pre><code class="java">// 第二种方式: 将异常信息返回到错误页面, 需要使用 ModelAndView, 不能使用 Map
+    @ExceptionHandler(value={ArithmeticException.class})
+    public ModelAndView dealHandlerExceptionResolver(Exception e){
+
+        System.out.println(&quot;22222&quot;+e.getMessage());
+        ModelAndView mv = new ModelAndView();
+        mv.addObject(&quot;myexception&quot;,e.getMessage());
+        mv.setViewName(&quot;error&quot;);
+        return mv;
+    }
+</code></pre>
+
+<h1 id="basic-config">Basic config</h1>
+<h2 id="maven-dependencies">maven dependencies</h2>
+<pre><code class="xml">    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-test&lt;/artifactId&gt;
+      &lt;version&gt;${spring.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-context&lt;/artifactId&gt;
+      &lt;version&gt;${spring.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;!-- SpringMVC --&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.ow2.util.bundles&lt;/groupId&gt;
+      &lt;artifactId&gt;commons-logging-1.1.1&lt;/artifactId&gt;
+      &lt;version&gt;1.0.0&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;jstl&lt;/groupId&gt;
+      &lt;artifactId&gt;jstl&lt;/artifactId&gt;
+      &lt;version&gt;1.2&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+    &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-aop&lt;/artifactId&gt;
+    &lt;version&gt;${spring.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-aspects&lt;/artifactId&gt;
+      &lt;version&gt;${spring.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-beans&lt;/artifactId&gt;
+      &lt;version&gt;${spring.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+      &lt;artifactId&gt;spring-core&lt;/artifactId&gt;
+      &lt;version&gt;${spring.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+    &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-expression&lt;/artifactId&gt;
+    &lt;version&gt;${spring.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+    &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-web&lt;/artifactId&gt;
+    &lt;version&gt;${spring.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+    &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-webmvc&lt;/artifactId&gt;
+    &lt;version&gt;${spring.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+   &lt;!-- jsp/servlet serlvet-api --&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+      &lt;artifactId&gt;servlet-api&lt;/artifactId&gt;
+      &lt;version&gt;2.5&lt;/version&gt;
+      &lt;scope&gt;provided&lt;/scope&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+      &lt;artifactId&gt;jsp-api&lt;/artifactId&gt;
+      &lt;version&gt;2.0&lt;/version&gt;
+      &lt;scope&gt;provided&lt;/scope&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+      &lt;artifactId&gt;jstl&lt;/artifactId&gt;
+      &lt;version&gt;1.2&lt;/version&gt;
+    &lt;/dependency&gt;
+&lt;!-- 对jason格式的支持--&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.codehaus.jackson&lt;/groupId&gt;
+      &lt;artifactId&gt;jackson-mapper-asl&lt;/artifactId&gt;
+      &lt;version&gt;1.9.13&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.codehaus.jackson&lt;/groupId&gt;
+      &lt;artifactId&gt;jackson-core-asl&lt;/artifactId&gt;
+      &lt;version&gt;1.9.13&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt;
+      &lt;artifactId&gt;jackson-databind&lt;/artifactId&gt;
+      &lt;version&gt;2.8.1&lt;/version&gt;
+    &lt;/dependency&gt;
+&lt;!-- jackson-annotations-2.5.0.jar
+
+jackson-core-2.5.0.jar
+
+jackson-databind-2.5.0.jar--&gt;
+
+</code></pre>
+
+<h2 id="webxml">web.xml</h2>
+<p>Below is the <code>web.xml</code> equivalent of the above code based example:</p>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+ &lt;web-app version=&quot;2.5&quot;
+         xmlns=&quot;http://java.sun.com/xml/ns/javaee&quot;
+         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+         xsi:schemaLocation=&quot;http://java.sun.com/xml/ns/javaee
+        http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd&quot;&gt;
+    &lt;servlet&gt;
+        &lt;servlet-name&gt;example&lt;/servlet-name&gt;
+        &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;
+        &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
+        &lt;!-- Again, config locations must consist of one or more comma(逗号)- or space-delimited
+            and fully-qualified @Configuration classes --&gt;
+        &lt;init-param&gt;
+            &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+            &lt;param-value&gt;classpath:spring/mvc-servlet.xml&lt;/param-value&gt;
+            &lt;!-- &lt;param-value&gt;/WEB-INF/mvc-servlet.xml&lt;/param-value&gt; --&gt;
+        &lt;/init-param&gt;
+    &lt;/servlet&gt;
+
+    &lt;servlet-mapping&gt;
+        &lt;servlet-name&gt;example&lt;/servlet-name&gt;
+        &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+        &lt;!-- &lt;url-pattern&gt;*.do&lt;/url-pattern&gt;
+        use *.do or *.action to fit the struts2 --&gt;
+    &lt;/servlet-mapping&gt;
+     &lt;!-- This filter is used to solve the question that some browsers only support get and post --&gt;
+      &lt;filter&gt;  
+                &lt;filter-name&gt;HiddenHttpMethodFilter&lt;/filter-name&gt;  
+                &lt;filter-class&gt;org.springframework.web.filter.HiddenHttpMethodFilter&lt;/filter-class&gt;  
+        &lt;/filter&gt;  
+        &lt;filter-mapping&gt;  
+                &lt;filter-name&gt;HiddenHttpMethodFilter&lt;/filter-name&gt;  
+                &lt;servlet-name&gt;spring&lt;/servlet-name&gt;  
+        &lt;/filter-mapping&gt;
+
+&lt;/web-app&gt;
+&lt;!--The above code is from Spring's official website--&gt;
+</code></pre>
+
+<p>Sometimes we will need to deploy (配置) a webmvc config file. If you do not define it explicitly (明确地), the default file name should be named as <code>&lt;servlet-name&gt;-servlet.xml</code> under the classpath.</p>
+<p>Edit the mvc config file：</p>
+<p>To enable autodetection of such annotated controllers, you add component scanning to your configuration. Use the <em>spring-context</em> schema as shown in the following XML snippet:</p>
+<p>Spring supports multiple view resolvers. Thus you can chain resolvers and, for example, override specific views in certain circumstances. You chain view resolvers by adding more than one resolver to your application context and, if necessary, by setting the <code>order</code> property to specify ordering. Remember, the higher the order property, the later the view resolver is positioned in the chain.</p>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+       xmlns:mvc=&quot;http://www.springframework.org/schema/mvc&quot;
+       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+       xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd&quot;&gt;
+
+    &lt;!-- scan the controller --&gt;
+    &lt;context:component-scan base-package=&quot;org.springframework.samples.petclinic.web&quot;/&gt;
+
+    &lt;!-- deploy the view resolver --&gt;
+    &lt;bean id=&quot;jspViewResolver&quot; class=&quot;org.springframework.web.servlet.view.InternalResourceViewResolver&quot;&gt;
+    &lt;property name=&quot;viewClass&quot; value=&quot;org.springframework.web.servlet.view.JstlView&quot;/&gt;
+    &lt;property name=&quot;prefix&quot; value=&quot;/WEB-INF/jsp/&quot;/&gt;
+    &lt;property name=&quot;suffix&quot; value=&quot;.jsp&quot;/&gt;
+        &lt;!-- 处理静态资源--&gt;
+    &lt;mvc:resources mapping=&quot;/lib/**&quot; location=&quot;/lib/&quot; /&gt;
+    &lt;!--&lt;mvc:resources mapping=&quot;/css/**&quot; location=&quot;/css/&quot; /&gt;--&gt;
+    &lt;!--&lt;mvc:resources mapping=&quot;/js/**&quot; location=&quot;/js/&quot; /&gt;--&gt;
+        &lt;!-- 配置注解驱动,相当于配置了RequestMappingHandlerMapping和RequesMappingtHandlerAdapter --&gt;
+    &lt;mvc:annotation-driven /&gt;
+&lt;/bean&gt;
+&lt;/beans&gt;
+</code></pre>
+
+<p>为了能够处理中文的post请求，再配置一个encodingFilter，以避免post请求中文出现乱码情况</p>
+<pre><code class="xml">&lt;filter&gt;
+    &lt;filter-name&gt;encodingFilter&lt;/filter-name&gt;
+    &lt;filter-class&gt;org.springframework.web.filter.CharacterEncodingFilter&lt;/filter-class&gt;
+    &lt;init-param&gt;
+        &lt;param-name&gt;encoding&lt;/param-name&gt;
+        &lt;param-value&gt;UTF-8&lt;/param-value&gt;
+    &lt;/init-param&gt;
+    &lt;init-param&gt;
+        &lt;param-name&gt;forceEncoding&lt;/param-name&gt;
+        &lt;param-value&gt;true&lt;/param-value&gt;
+    &lt;/init-param&gt;
+&lt;/filter&gt;
+&lt;filter-mapping&gt;
+    &lt;filter-name&gt;encodingFilter&lt;/filter-name&gt;
+    &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+&lt;/filter-mapping&gt;
+</code></pre>
+
+<p>It actually act as <code>request.setCharcterEncoding("UTF-8");</code> and <code>response.setCharcterEncoding("UTF-8");</code></p>
+<h2 id="_5">控制器类</h2>
+<p>先简单写法</p>
+<pre><code class="java">public class HelloWorldControler extends AbstractCommandController {
+    private String showMessagePage;
+    public HelloWorldControler(){
+        //绑定处理的jsp页面内容的bean
+        setCommandClass(HelloWprldBean.class);
+    }
+    //提交请求后，controler会自动调用handle方法，负责处理请求并返回合适的模型与视图
+    @Override
+    protected ModelAndView handle(javax.servlet.http.HttpServletRequest httpServletRequest, javax.servlet.http.HttpServletResponse httpServletResponse, Object o, BindException e) {
+        HelloWprldBean helloWprldBean=(HelloWprldBean)o;
+        //parm：返回的视图名，存储于request中的变量名，存储的变量
+        return new ModelAndView(getMessagePage(),&quot;helloworldform&quot;,helloWprldBean);
+    }
+    //返回视图名称
+    public String getMessagePage(){
+        return showMessagePage;
+    }
+    //设置视图名称，通过spring依赖注入
+    public void setShowMessagePage(String showMessagePage){
+        this.showMessagePage=showMessagePage;
+    }
+}
+</code></pre>
+
+<p>--@Controller注解：采用注解的方式，可以明确地定义该类为处理请求的Controller类；
+--@RequestMapping()注解：用于定义一个请求映射，value为请求的url；
+--return "index"：处理完该请求后返回的逻辑视图。
+回到mvc-dispatcher.xml，进行相关配置。</p>
+<pre><code class="java">@Controller
+@RequestMapping(value = &quot;/appointments&quot;)
+public class AppointmentsController {
+
+    private final AppointmentBook appointmentBook;
+
+    @Autowired
+    public AppointmentsController(AppointmentBook appointmentBook) {
+        this.appointmentBook = appointmentBook;
+    }
+
+    @RequestMapping(method = RequestMethod.GET)
+    public Map&lt;String, Appointment&gt; get() {
+        return appointmentBook.getAppointmentsForToday();
+    }
+
+    @RequestMapping(path = &quot;/{day}&quot;, method = RequestMethod.GET)
+    public Map&lt;String, Appointment&gt; getForDay(@PathVariable @DateTimeFormat(iso=ISO.DATE) Date day, Model model) {
+        return appointmentBook.getAppointmentsForDay(day);
+    }
+
+    @RequestMapping(path = &quot;/new&quot;, method = RequestMethod.GET)
+    public AppointmentForm getNewForm() {
+        return new AppointmentForm();
+    }
+
+    @RequestMapping(method = RequestMethod.POST)
+    public String add(@Valid AppointmentForm appointment, BindingResult result) {
+        if (result.hasErrors()) {
+            return &quot;appointments/new&quot;;
+        }
+        appointmentBook.addAppointment(appointment);
+        return &quot;redirect:/appointments&quot;;
+        //the code will issues(分发) request to appointments
+    }
+}
+</code></pre>
+
+<p>The first usage is on the type (class) level, which indicates that all handler methods in this controller are relative to the /appointments path. The get() method has a further @RequestMapping refinement: it only accepts GET requests, meaning that an HTTP GET for /appointments invokes this method. The <code>add()</code> has a similar refinement, and the <code>getNewForm()</code> combines the definition of HTTP method and path into one, so <strong>that <code>GET</code> requests for <code>appointments/new</code> are handled by that method.</strong></p>
+<p>If you set RequestMethod.GET in the @RequestMapping anntation, the server will return error code <strong>405</strong></p>
+<h2 id="contextconfig">Contextconfig文件的写法</h2>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&quot;&gt;
+    //配置controler类
+    &lt;bean id=&quot;hello&quot; class=&quot;cn.wwt.Controler.HelloWorldControler&quot;&gt;
+        &lt;property name=&quot;showMessagePage&quot;&gt;
+            &lt;value&gt;result&lt;/value&gt;
+        &lt;/property&gt;
+    &lt;/bean&gt;
+    //配置servlet的映射
+    &lt;bean id=&quot;urlMapping&quot; class=&quot;org.springframework.web.servlet.handler.SimpleUrlHandlerMapping&quot;&gt;
+        &lt;property name=&quot;mappings&quot;&gt;
+            &lt;props&gt;
+                &lt;prop key=&quot;/hello.do&quot;&gt;hello&lt;/prop&gt;
+                //key值相当于jsp的action值，value相当于control类的id
+            &lt;/props&gt;
+        &lt;/property&gt;
+    &lt;/bean&gt;
+    //配置jsp视图解析
+    &lt;bean id=&quot;view&quot; class=&quot;org.springframework.web.servlet.view.InternalResourceViewResolver&quot;&gt;
+        &lt;property name=&quot;prefix&quot; value=&quot;/&quot; /&gt;
+        &lt;property name=&quot;suffix&quot; value=&quot;.jsp&quot; /&gt;
+    &lt;/bean&gt;
+
+&lt;/beans&gt;
+</code></pre>
+
+<h2 id="requestbodyresponsebody">注解之@RequestBody和@ResponseBody</h2>
+<blockquote>
+<ul>
+<li>@requestBody<blockquote>
+<p>如果传输的是单层json对象，我们后台可以直接用 @RequestParam接收.如果传输的是多层嵌套json对象，这个时候会就会出现数据丢失问题,@RequestBody很好的解决了这个问题，它会把前台传输过来的json转化为后台对应的对象
+<code>@RequestMapping("/testRequestBody")
+public String testRequestBody(@RequestParam Map&lt;String, Object&gt; map) {
+  System.out.println(map);// {name=韦德, age=35}
+  return "index";
+}
+@RequestMapping("/testRequestBody")
+public String testRequestBody(@RequestBody Map&lt;String, Object&gt; map) {
+  System.out.println(map);//{name=韦德, win=[2006, 2012, 2013], age=35}
+  return "index";
+}</code>
+<strong>需要注意的是前台需要指定contentType为"application/json"同时要把json对象转化为String，否则后台不能识别</strong></p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li>@responseBody</li>
+</ul>
+<p>The <code>@ResponseBody</code> annotation is similar to <code>@RequestBody</code>. This annotation can be placed on a method and indicates that the return type should be written straight to the HTTP response body (and not placed in a Model, or interpreted as a view name). For example</p>
+<pre><code class="java"> @GetMapping(&quot;/something&quot;)
+ @ResponseBody
+ public String helloWorld() {
+     return &quot;Hello World&quot;;
+}
+</code></pre>
+
+<p>The above example will result in the text <code>Hello World</code> being written to the HTTP response stream.</p>
+<h1 id="introduction-to-spring-web-mvc-framework">Introduction to Spring Web MVC framework</h1>
+<h2 id="define-any-controller-method-signature-by-using-annotations">Define any controller method signature  by using annotations</h2>
+<h3 id="requestparam">@RequestParam</h3>
+<p>Use the <code>@RequestParam</code> annotation to bind request parameters to a method parameter in your controller.</p>
+<pre><code class="java">@Controller
+@RequestMapping(&quot;/pets&quot;)
+@SessionAttributes(&quot;pet&quot;)
+public class EditPetForm {
+    @GetMapping
+    public String setupForm(@RequestParam(&quot;petId&quot;,defaultValue=&quot;1&quot;,required=false) int petId, ModelMap model) {
+        Pet pet = this.clinic.loadPet(petId);
+        model.addAttribute(&quot;pet&quot;, pet);
+        return &quot;petForm&quot;;
+    }
+}
+</code></pre>
+
+<p>Parameters using this annotation are required by default, but you can specify that a parameter is optional by setting <code>@RequestParam</code>'s <code>required</code> attribute to <code>false</code>(e.g., <code>@RequestParam(name="id", required=false)</code>).</p>
+<p>Type conversion is applied automatically if the target method parameter type is not <code>String</code>. See <a href="https://docs.spring.io/spring/docs/4.3.22.RELEASE/spring-framework-reference/htmlsingle/#mvc-ann-typeconversion">the section called “Method Parameters And Type Conversion”</a>.</p>
+<p>When an <code>@RequestParam</code> annotation is used on a <code>Map&lt;String, String&gt;</code> or <code>MultiValueMap&lt;String, String&gt;</code> argument, the map is populated with all request parameters.</p>
+<blockquote>
+<p><strong>Note:</strong>You'd must to write the basic data type as package class instead. Because SpringMVC may try to transfer a null value. A null value can be transfer into a packege class object but could not transfer into a basic data type.</p>
+</blockquote>
+<h3 id="pathvariable">@PathVariable</h3>
+<p>With the introduction of Spring 3.0, the <code>@Controller</code> mechanism also allows you to create <strong>RESTful Web sites and applications,</strong> through the <code>@PathVariable</code> annotation and other features.</p>
+<pre><code class="java">@Controller
+@RequestMapping(&quot;/appointments&quot;)
+public class AppointmentsController {
+
+    private final AppointmentBook appointmentBook;
+
+    @Autowired
+    public AppointmentsController(AppointmentBook appointmentBook) {
+        this.appointmentBook = appointmentBook;
+    }
+
+    @GetMapping
+    public Map&lt;String, Appointment&gt; get() {
+        return appointmentBook.getAppointmentsForToday();
+    }
+
+    @GetMapping(&quot;/{day}&quot;)
+    public Map&lt;String, Appointment&gt; getForDay(@PathVariable @DateTimeFormat(iso=ISO.DATE) Date day, Model model) {
+        return appointmentBook.getAppointmentsForDay(day);
+    }
+
+    @GetMapping(&quot;/new&quot;)
+    public AppointmentForm getNewForm() {
+        return new AppointmentForm();
+    }
+
+    @PostMapping
+    public String add(@Valid AppointmentForm appointment, BindingResult result) {
+        if (result.hasErrors()) {
+            return &quot;appointments/new&quot;;
+        }
+        appointmentBook.addAppointment(appointment);
+        return &quot;redirect:/appointments&quot;;
+    }
+}
+</code></pre>
+
+<h3 id="other-annotation">Other annotation</h3>
+<p>@CookieValue:Get the value stored in cookie.</p>
+<pre><code class="java">@RequestMapping(&quot;testcokie&quot;)
+    public String testCookie(@CookieValue(&quot;JSESSIONID&quot;) String sessionId){
+        System.out.println(&quot;sessionID : &quot; + sessionId);
+        return &quot;hello&quot;;
+    }
+</code></pre>
+
+<p>@RequestHead:get the value stored in the request head</p>
+<pre><code class="java">@RequestMapping(&quot;test&quot;)
+    public String testCookie(@RequestHeader(&quot;User-Agent&quot;) String user){
+        System.out.println(&quot;user agent : &quot; + user);
+        return &quot;hello&quot;;
+    }
+</code></pre>
+
+<h1 id="requestmappings-request-value-and-request-headers-expression">RequestMapping's  request value and request headers expression:</h1>
+<pre><code class="java">@RequestMapping(value=&quot;test&quot; ,params={&quot;username&quot;,&quot;age!=10&quot;.&quot;!birthday&quot;},hearders={&quot;Accept-Language: en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7&quot;})
+public String test(String username,Interger age){
+    return &quot;hello&quot;;
+}
+</code></pre>
+
+<p>The method belove only accept those request that without parameter named "birthday",the age value could not be 10, only accept the request from China and USA.</p>
+<p>@RequestMapping also support Ant style URL expression.</p>
+<table>
+<thead>
+<tr>
+<th align="center">wildcards</th>
+<th>meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">?</td>
+<td>represent a character in the filename</td>
+</tr>
+<tr>
+<td align="center">*</td>
+<td>represent any characters in the filename</td>
+</tr>
+<tr>
+<td align="center">**</td>
+<td>represent multiple path(多层路径)</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>URL Path</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/app/*.x</td>
+<td>匹配(Matches)所有在app路径下的.x文件</td>
+</tr>
+<tr>
+<td>/app/p?ttern</td>
+<td>匹配(Matches) /app/pattern 和 /app/pXttern,但是不包括/app/pttern</td>
+</tr>
+<tr>
+<td>/**/example</td>
+<td>匹配(Matches) /app/example, /app/foo/example, 和 /example</td>
+</tr>
+<tr>
+<td>/app/*<em>/dir/file.</em></td>
+<td>匹配(Matches) /app/dir/file.jsp, /app/foo/dir/file.html,/app/foo/bar/dir/file.pdf, 和 /app/dir/file.java</td>
+</tr>
+<tr>
+<td>/*<em>/</em>.jsp</td>
+<td>匹配(Matches)任何的.jsp 文件</td>
+</tr>
+</tbody>
+</table>
+<h2 id="return-type-in-mvc-method">Return type in MVC method</h2>
+<ul>
+<li><strong>String</strong></li>
+<li>return "example": transmit the request to the "example" view.(forword)</li>
+<li>return "redirect:example": redirect the request to URL address "Protocol:IP:Port:ProjectName/example"</li>
+</ul>
+<pre><code class="java">public String show(Map&lt;String,Object&gt; map){
+        User user = new User();
+        user.setName(&quot;wwt&quot;);
+        map.put(&quot;user&quot;,user);
+        return &quot;showuser&quot;;
+}
+public String show(Model model){
+        User user = new User();
+        user.setName(&quot;wwt&quot;);
+        model.addAttribute(&quot;user&quot;,user);
+        return &quot;showuser&quot;;
+}
+</code></pre>
+
+<ul>
+<li><strong>ModelAndView</strong></li>
+</ul>
+<p>return model and view.</p>
+<pre><code class="java"> ModelAndView n = new ModelAndView();
+ n.setViewName(&quot;successs&quot;);
+ n.addObject(&quot;user&quot;,user);
+ return n;
+</code></pre>
+
+<ul>
+<li><strong>Object</strong></li>
+</ul>
+<p>Return an object, ordinary use it to return Json data. Add a @Responsebody annotation before method ot return value.</p>
+<ul>
+<li><strong>void</strong></li>
+</ul>
+<p>Normaly used to return other <a href="http://www.w3school.com.cn/media/media_mimeref.asp">MIME</a> type data.</p>
+<p>Such as return html :<code>Response.getWriter().write();</code></p>
+<p>@SessionAttribute is use to transmit the data in the session scope,such as <code>SessionAttribute(value = {"user"}, type= {String.class})</code>, when you put user object and the String type data  into the map, or ModelAndView, will add it into session scope too. </p>
+<h2 id="some-java-native-api">Some java native api</h2>
+<p>Such as HttpServletRequest, HttpServletResponse, HttpSession, Reader, Writer, InputStream, OutputStream, java.security.Principal.</p>
+<h2 id="design-a-restftul-application">Design a restftul application</h2>
+<p>### When your browser only support "get" and "post"</p>
+<p>Since browsers currently only support GET and POST(JSPs only permit GET POST or HEAD), a common technique - used by the Prototype library, for instance - is to use a normal POST with an additional hidden form field (<code>_method</code>) to pass the "real" HTTP method along. This filter reads that parameter and changes the <a href="http://docs.jboss.org/jbossas/javadoc/7.1.2.Final/javax/servlet/http/HttpServletRequestWrapper.html?is-external=true#getMethod--"><code>HttpServletRequestWrapper.getMethod()</code></a> return value accordingly. Only <code>"PUT"</code>, <code>"DELETE"</code> and <code>"PATCH"</code> HTTP methods are allowed.</p>
+<p>The name of the request parameter defaults to <code>_method</code>, but can be adapted via the <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/filter/HiddenHttpMethodFilter.html#setMethodParam-java.lang.String-"><code>methodParam</code></a> property.</p>
+<p>The code below will show you how to alter the jsp code</p>
+<pre><code class="html">&lt;form id = 'deletefrom' method = 'post' &gt;
+    &lt;input type = 'hidden' name = '_method' value = 'delete' /&gt;
+    ...
+&lt;/form&gt;
+&lt;a href = 'javascript:void(0)' onclick = 'deleteById(id)'&gt;删除&lt;/a&gt;
+&lt;script&gt;
+    function deleteById(id){
+        var form = Document.getElementById('deleteform');
+        form.action = &quot;${pageContext.request.contextPath}&quot;+id;
+        form.submit();
+    }
+&lt;/script&gt;
+</code></pre>
+
+<h3 id="design">Design</h3>
+<p>URL design example:</p>
+<ul>
+<li>/orders HTTP GET : get list page</li>
+<li>/order/1 HTTP GET : get order that id = 1</li>
+<li>/order/1 HTTP DELETE: delete order that id = 1</li>
+<li>/order/1 HTTP PUT : update order that id = 1</li>
+<li>/order HTTP POST : add an order</li>
+<li>/order HTTP GET : return a page to add order</li>
+</ul>
+<h2 id="custom-converter">Custom converter</h2>
+<p>Just write a class inherit(继承) from Converter and register it in MVC config file.</p>
+<pre><code class="java">public class DateConverter implements Converter&lt;String,Date&gt; {
+    @Override
+    public Date convert(String source){
+        //转换日期类型
+        try{
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
+            simpleDateFormat.setLenient(false);
+            return simpleDateFormat.parse(source);
+        }catch (ParseException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+}
+</code></pre>
+
+<pre><code class="xml">&lt;!-- 日期转换--&gt;
+    &lt;bean id =&quot;myConverter&quot; class=&quot;org.springframework.format.support.FormattingConversionServiceFactoryBean&quot;&gt;
+        &lt;property name=&quot;converters&quot;&gt;
+            &lt;set&gt;
+                &lt;bean class=&quot;com.web.DateConverter&quot; /&gt;
+            &lt;/set&gt;
+        &lt;/property&gt;
+    &lt;/bean&gt;
+</code></pre>
+
+<h2 id="handle-exception">Handle exception</h2>
+<p>A programmatic way of handling exceptions gives you more options for responding appropriately(适当地) before the request is forwarded to another URL.</p>
+<ol>
+<li>Handle a single exception.  The <code>@ExceptionHandler</code> annotation can be used on methods that should be invoked to handle an exception. Such methods may be defined locally within an <code>@Controller</code> or may apply to many <code>@Controller</code> classes when defined within an <code>@ControllerAdvice</code> class. The following sections explain this in more detail. Remember that a Map could not carry a Exception object.</li>
+</ol>
+<pre><code class="java">@ExceptionHandler
+    public ModelAndView handleException(Exception e){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject(&quot;exception&quot;,e);
+        modelAndView.setViewName(&quot;error&quot;);
+        return modelAndView;
+    }
+</code></pre>
+
+<ol>
+<li>Add a specify exception class in to the annotation to deal with different exception, such as</li>
+</ol>
+<p><code>@ExceptionHandler(NumberFormatException.class)</code></p>
+<ol>
+<li>Match with a custom(定制) exception </li>
+</ol>
+<p><code>java
+   public class LackParamException extends SecurityException {
+       public LackParamException(){
+           super("Lack parameter");
+       }
+       public LackParamException(String msg){
+           super(msg);
+       }
+   }
+       @ExceptionHandler(LackParamException.class)
+       public ModelAndView handleException(Exception e){
+           ModelAndView modelAndView = new ModelAndView();
+           modelAndView.addObject("Exception",e);
+           modelAndView.setViewName("error");
+           return modelAndView;
+       }
+       @RequestMapping(path = "test-exception")
+       public String testException(String str) throws LackParamException{
+           if(StringUtils.isBlank(str)){
+               throw new LackParamException("缺少参数");
+           }
+           return "success";
+       }</code></p>
+<ol>
+<li>Handle global exception<pre><code>Advising controllers with @ControllerAdvice and @RestControllerAdvice. The `@ControllerAdvice` annotation is a component annotation allowing implementation classes to be auto-detected through classpath scanning.
+</code></pre>
+</li>
+</ol>
+<p>​    It is automatically enabled when using the MVC namespace or the MVC Java config. Classes annotated with <code>@ControllerAdvice</code> can contain <code>@ExceptionHandler</code>, <code>@InitBinder</code>, and <code>@ModelAttribute</code> annotated methods, and these methods will apply to <code>@RequestMapping</code> methods across all controller hierarchies(层次结构).</p>
+<p>​    @RestControllerAdvice<code>is an alternative where</code>@ExceptionHandler<code>methods assume</code>@ResponseBody` semantics by default.</p>
+<p><code>java
+   @ControllerAdvice
+   public class MyExceptionHandler {
+       @ExceptionHandler(LackParamException.class)
+       public ModelAndView handleException(Exception e){
+           ModelAndView modelAndView = new ModelAndView();
+           System.out.println("catch exception");
+           modelAndView.addObject("Exception",e);
+           modelAndView.setViewName("error");
+           return modelAndView;
+       }
+       // handle other type exception
+   }</code></p>
+<h2 id="intercepting-requests-with-a-handlerinterceptor">Intercepting requests with a HandlerInterceptor</h2>
+<p>​    Interceptors located in(位于) the handler mapping must implement HandlerInterceptor from the org.springframework.web.servlet package. This interface defines three methods: preHandle(..) is called before the actual handler is executed; postHandle(..) is called after the handler is executed; and afterCompletion(..) is called after the complete request has finished. These three methods should provide enough flexibility to do all kinds of preprocessing and postprocessing.</p>
+<p>The <code>preHandle(..)</code> method returns a boolean value. You can use this method to break or continue the processing of the execution chain. </p>
+<p><code>java
+   public class MyInterceptor implements HandlerInterceptor {
+       /**
+        * 该方法将在请求处理之前进行调用,在handler前执行，
+        * 可用于身份认证，权限校验
+        */
+       @Override
+       public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) {
+           System.out.println("prehandle");
+           return true;
+       }
+       /**
+        * 它会在DispatcherServlet 进行视图返回渲染之前被调用，所以我们可以在这个方法中对Controller 处理之
+        * 后的ModelAndView 对象进行操作。
+        * 如果想要想页面提供公共数据或公共配置信息，可以考虑使用这里的ModelAndView对象
+        */
+       @Override
+       public void postHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, ModelAndView modelAndView) {
+           System.out.println("posthandle");
+       }
+       /**
+        * 该方法将在整个请求结束之后，也就是在DispatcherServlet 渲染了对应的视图之后执行
+        * 执行handler后执行，可用于日志，系统性能分析,清理资源
+        */
+       @Override
+       public void afterCompletion(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception e) {
+           System.out.println("afterCompletion");
+       }
+   }</code></p>
+<p><code>xml
+   &lt;!-- 配置拦截器，多个拦截器顺序执行--&gt;
+       &lt;mvc:interceptors&gt;
+           &lt;mvc:interceptor&gt;
+               &lt;mvc:mapping path="/**"/&gt;
+               &lt;mvc:exclude-mapping path="/js/**" /&gt;
+               &lt;bean class="com.Intercepter.MyIntercepter" /&gt;
+           &lt;/mvc:interceptor&gt;
+       &lt;/mvc:interceptors&gt;</code></p>
+<p>When you deploy multiple interceptor, their excute's order may look like this:</p>
+<p>pre1-&gt;pre2-&gt;post2-&gt;post1-&gt;after2-&gt;after1</p>
+<h2 id="springs-multipart-file-upload-support">Spring’s multipart (file upload) support</h2>
+<p>When the Spring <code>DispatcherServlet</code> detects a multi-part request, it activates the resolver that has been declared in your context and hands over the request. The resolver then wraps the current <code>HttpServletRequest</code> into a <code>MultipartHttpServletRequest</code> that supports multipart file uploads. Using the <code>MultipartHttpServletRequest</code>, you can get information about the multiparts contained by this request and actually get access to the multipart files themselves in your controllers.</p>
+<p>Of course you also need to put the appropriate jars in your classpath for the multipart resolver to work. In the case of the <code>CommonsMultipartResolver</code>, you need to use <code>commons-fileupload.jar</code>.</p>
+<ol>
+<li>Using a MultipartResolver with Commons FileUpload. Of course you also need to put the appropriate jars in your classpath <code>commons-fileupload.jar</code>.</li>
+</ol>
+<p><code>xml
+   &lt;!--配置MultiPartResolver，处理文件上传--&gt;
+       &lt;bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"&gt;
+           &lt;property name="defaultEncoding" value="utf-8" /&gt; &lt;!--默认编码ISO-8859-1 --&gt;
+           &lt;property name="maxInMemorySize" value="10240" /&gt; &lt;!--最大内存大小 --&gt;
+           &lt;property name="uploadTempDir" value="/upload" /&gt; &lt;!-- 上传后的目录名--&gt;
+           &lt;property name="maxUploadSize" value="-1" /&gt; &lt;!-- 最大文件大小，单位字节，-1为无限制 --&gt;
+       &lt;/bean&gt;</code></p>
+<ol>
+<li>Handling a file upload in a form, First, create a form with a file input that will allow the user to upload a form. The encoding attribute ( <code>enctype="multipart/form-data"</code>) lets the browser know how to encode the form as multipart request:</li>
+</ol>
+<pre><code class="html">&lt;form method=&quot;post&quot; action=&quot;/form&quot; enctype=&quot;multipart/form-data&quot;&gt;
+            &lt;input type=&quot;text&quot; name=&quot;name&quot;/&gt;
+            &lt;input type=&quot;file&quot; name=&quot;file&quot;/&gt;
+            &lt;input type=&quot;submit&quot;/&gt;
+&lt;/form&gt;
+</code></pre>
+
+<ol>
+<li>Create a controller that handles the file upload.</li>
+</ol>
+<pre><code class="java">@RequestMapping(path = &quot;fileupload&quot;)
+    public String handleFormUpload(@RequestParam(&quot;name&quot;) String name,
+                                   @RequestParam(&quot;file&quot;) MultipartFile file, Model model) throws Exception{
+
+        if(!file.isEmpty() &amp;&amp; file.getOriginalFilename() != null &amp;&amp; file.getOriginalFilename().length() &gt; 0){
+            //文件存储路径
+            String uploadPath = &quot;E:\\Upload\\&quot;;
+            //文件名
+            String orignName = file.getOriginalFilename();
+            //文件拓展名
+            String extendName = orignName.substring(orignName.lastIndexOf(&quot;.&quot;));
+            //为防止文件重名使用UUID的randomUUID
+            String newFileName = UUID.randomUUID().toString() + extendName;
+            File uploadfile = new File(uploadPath + newFileName);
+            //使用transferTo（dest）方法将上传文件写到服务器上指定的文件
+            file.transferTo(uploadfile);
+            //下面的photopath是自己在tomcat设置的虚拟路径,对应E:\\Upload\\，filePath可以给前端            调用
+            model.addAttribute(&quot;filePath&quot;,&quot;/photopath/&quot; + newFileName);
+        }
+        return &quot;success&quot;;
+    }
+</code></pre>
+
+<ol>
+<li>This step you can skip. In practice(实践中) you can save file in a database, store it on the file system, and so on. For save it into file system we can set a virtual path in tomcat. Edit the <code>server.xml</code> in <code>conf</code> directory in Tomcat.</li>
+</ol>
+<pre><code class="xml">&lt;Host name=&quot;localhost&quot;  appBase=&quot;webapps&quot;
+            unpackWARs=&quot;true&quot; autoDeploy=&quot;true&quot;&gt;
+        ...
+
+        &lt;!-- 虚拟路径[访问时路径为/photo] --&gt;  
+         &lt;Context path=&quot;/photo&quot; docBase=&quot;D:\temp&quot; reloadable=&quot;true&quot; /&gt; 
+</code></pre>
+
+<p>Then hook up(勾上) the <code>Deploy applications configured in Tomcat instance</code> in your IEDA.</p>
+<h2 id="jason-and-jasonp">jason and jasonp</h2>
+<h3 id="question-about-locationto-be-alter">Question about location(To be alter)</h3>
+<p>The "/" location in jsp and MVC are different meaning. </p>
+<p>The "/" location under the MVC means...</p>
+<p>If your application fully seprates(分离) front-end and after-end, one solution is write a location variable in js. And use it in html. Another solution is set a visit path in your database, the after-end can fetch this value to front-end. Front-end can via AJAX or JS to add get and add in to url.</p>
+<p>While you can use <code>${pageContext.request.contextPath}</code> in jsp file.</p>
+<h1 id="crm-example-website">CRM Example Website</h1>
+<p>销售易</p>
+<p>demo.edusoho.com</p>
+<p>www.wuyezhijia.cn 诺怀</p>
+<p>open.taobao.com</p>
+<p>www.inxedu.com/exam</p>
+<p>www.inxedu.com</p>
+<p>德课</p>
+<h1 id="restful-api">Restful API</h1>
+<p>REST:Representaional State Transfer, (资源)表现层状态转换。是目前最流行的互联网软件架构。</p>
+<ol>
+<li>
+<p>URL design</p>
+</li>
+<li>
+<p>GET：读取（Read）</p>
+</li>
+<li>POST：新建（Create）</li>
+<li>PUT：更新（Update）</li>
+<li>PATCH：更新（Update），通常是部分更新</li>
+<li>
+<p>DELETE：删除（Delete）</p>
+</li>
+<li>
+<p>有些客户端只能使用<code>GET</code>和<code>POST</code>这两种方法。服务器必须接受<code>POST</code>模拟其他三个方法（<code>PUT</code>、<code>PATCH</code>、<code>DELETE</code>）。</p>
+</li>
+</ol>
+<p>这时，客户端发出的 HTTP 请求，要加上<code>X-HTTP-Method-Override</code>属性，告诉服务器应该使用哪一个动词，覆盖<code>POST</code>方法。</p>
+<blockquote>
+<p><code>http
+POST /api/Person/4 HTTP/1.1  
+X-HTTP-Method-Override: PUT</code></p>
+</blockquote>
+<p>上面代码中，<code>X-HTTP-Method-Override</code>指定本次请求的方法是<code>PUT</code>，而不是<code>POST</code>。</p>
+<ol>
+<li>
+<p>URL should be plural(复数的) noun(名词), but not verb(动词).</p>
+</li>
+<li>
+<p>避免多级url，更好的做法是，除了第一级，其他级别都用查询字符串表达。</p>
+</li>
+</ol>
+<pre><code>GET /authors/12?categories=2
+GET /articles?published=true
+</code></pre>
+
+<ol>
+<li>状态码</li>
+</ol>
+<p>客户端的每一次请求，服务器都必须给出回应。回应包括 HTTP 状态码和数据两部分。</p>
+<p>HTTP 状态码就是一个三位数，分成五个类别</p>
+<ul>
+<li><code>1xx</code>：相关信息</li>
+<li><code>2xx</code>：操作成功</li>
+<li><code>3xx</code>：重定向</li>
+<li><code>4xx</code>：客户端错误</li>
+<li><code>5xx</code>：服务器错误</li>
+</ul>
+<p>API 不需要<code>1xx</code>状态码，下面介绍其他四类状态码的精确含义。</p>
+<p><code>200</code>状态码表示操作成功，但是不同的方法可以返回更精确的状态码。</p>
+<blockquote>
+<ul>
+<li>GET: 200 OK</li>
+<li>POST: 201 Created</li>
+<li>PUT: 200 OK</li>
+<li>PATCH: 200 OK</li>
+<li>DELETE: 204 No Content</li>
+</ul>
+</blockquote>
+<p>上面代码中，<code>POST</code>返回<code>201</code>状态码，表示生成了新的资源；<code>DELETE</code>返回<code>204</code>状态码，表示资源已经不存在。</p>
+<p>此外，<code>202 Accepted</code>状态码表示服务器已经收到请求，但还未进行处理，会在未来再处理，通常用于异步操作。</p>
+<p>API 用不到<code>301</code>状态码（永久重定向）和<code>302</code>状态码（暂时重定向，<code>307</code>也是这个含义），因为它们可以由应用级别返回，浏览器会直接跳转，API 级别可以不考虑这两种情况。</p>
+<p>API 用到的<code>3xx</code>状态码，主要是<code>303 See Other</code>，表示参考另一个 URL。它与<code>302</code>和<code>307</code>的含义一样，也是"暂时重定向"，区别在于<code>302</code>和<code>307</code>用于<code>GET</code>请求，而<code>303</code>用于<code>POST</code>、<code>PUT</code>和<code>DELETE</code>请求。收到<code>303</code>以后，浏览器不会自动跳转，而会让用户自己决定下一步怎么办。</p>
+<p><code>4xx</code>状态码表示客户端错误，主要有下面几种。</p>
+<p><code>400 Bad Request</code>：服务器不理解客户端的请求，未做任何处理。</p>
+<p><code>401 Unauthorized</code>：用户未提供身份验证凭据，或者没有通过身份验证。</p>
+<p><code>403 Forbidden</code>：用户通过了身份验证，但是不具有访问资源所需的权限。</p>
+<p><code>404 Not Found</code>：所请求的资源不存在，或不可用。</p>
+<p><code>405 Method Not Allowed</code>：用户已经通过身份验证，但是所用的 HTTP 方法不在他的权限之内。</p>
+<p><code>410 Gone</code>：所请求的资源已从这个地址转移，不再可用。</p>
+<p><code>415 Unsupported Media Type</code>：客户端要求的返回格式不支持。比如，API 只能返回 JSON 格式，但是客户端要求返回 XML 格式。</p>
+<p><code>422 Unprocessable Entity</code> ：客户端上传的附件无法处理，导致请求失败。</p>
+<p><code>429 Too Many Requests</code>：客户端的请求次数超过限额</p>
+<p><code>5xx</code>状态码表示服务端错误。一般来说，API 不会向用户透露服务器的详细信息，所以只要两个状态码就够了。</p>
+<p><code>500 Internal Server Error</code>：客户端请求有效，服务器处理时发生了意外。</p>
+<p><code>503 Service Unavailable</code>：服务器无法处理请求，一般用于网站维护状态。</p>
+<ol>
+<li>不要返回纯本文</li>
+</ol>
+<p>API 返回的数据格式，不应该是纯文本，而应该是一个 JSON 对象，因为这样才能返回标准的结构化数据。所以，服务器回应的 HTTP 头的<code>Content-Type</code>属性要设为<code>application/json</code>。</p>
+<p>客户端请求时，也要明确告诉服务器，可以接受 JSON 格式，即请求的 HTTP 头的<code>ACCEPT</code>属性也要设成<code>application/json</code></p>
+<ol>
+<li>
+<p>发生错误时，不要返回 200 状态码,有一种不恰当的做法是，即使发生错误，也返回200状态码，把错误信息放在数据体里面.解析数据体以后，才能得知操作失败。这张做法实际上取消了状态码，这是完全不可取的。正确的做法是，状态码反映发生的错误，具体的错误信息放在数据体里面返回</p>
+</li>
+<li>
+<p>提供链接.API 的使用者未必知道，URL 是怎么设计的。一个解决方法就是，在回应中，给出相关链接，便于下一步操作。这样的话，用户只要记住一个 URL，就可以发现其他的 URL。这种方法叫做 HATEOAS。</p>
+</li>
+</ol>
+<p>举例来说，GitHub 的 API 都在 api.github.com 这个域名。访问它，就可以得到其他 URL。</p>
+<blockquote>
+<p>refers to:<a href="http://www.ruanyifeng.com/blog/2018/10/restful-api-best-practices.html">RESTful API 最佳实践</a></p>
+</blockquote>
+<h1 id="some-question-you-may-meet">Some  Question you may meet</h1>
+<h2 id="messy-code-when-use-get-method">messy code when use GET method</h2>
+<ul>
+<li>Google how to set the Sever.xml in Tomcat, Or use Tomcat 8 or a higher version. </li>
+<li>use <code>String a = "mseeycode".getBytes("Utf-8");</code> or <code>String a = new String("mseeycode","UTF-8");</code></li>
+<li><code>String a = URLEncoder.encoder("messycode","UTF-8");</code></li>
+</ul>
+<h2 id="jsp-page-could-not-use-el">jsp page could not use EL</h2>
+<p>The one possibly reason is that your jsp version is lowwer than 2.0. Here is some solution</p>
+<ol>
+<li>
+<p>Add <code>&lt;%@page isELIgnored=”false” %&gt;</code> to your jsp file</p>
+</li>
+<li>
+<p>Alter the jsp version in web.xml as following</p>
+</li>
+</ol>
+<p><code>xml
+   &lt;web-app version="2.5"
+   xmlns="http://java.sun.com/xml/ns/javaee"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+   http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" &gt;</code></p>
+<blockquote>
+<p>refers to <a href="https://blog.csdn.net/wangxiaofei1993/article/details/77089754">隔壁老王666</a></p>
+</blockquote>
+<h1 id="refers">Refers</h1>
+<blockquote>
+<p><a href="https://docs.spring.io/spring/docs/4.3.22.RELEASE/spring-framework-reference/htmlsingle/#mvc-servlet">spring offical website</a></p>
+</blockquote>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../Others/Questions/" class="btn btn-neutral float-right" title="Questions">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../spring/" class="btn btn-neutral" title="SpringNotes"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../spring/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../Others/Questions/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>

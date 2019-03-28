@@ -93,7 +93,43 @@
         
             <li><a class="toctree-l4" href="#sql-min-and-max-functions">SQL MIN() and MAX() Functions(函数)</a></li>
         
-            <li><a class="toctree-l4" href="#thanks-to">Thanks to</a></li>
+            <li><a class="toctree-l4" href="#sql-count-avgsum-functions">SQL COUNT(), AVG(),SUM() Functions</a></li>
+        
+            <li><a class="toctree-l4" href="#sql-like-operator">SQL LIKE Operator</a></li>
+        
+            <li><a class="toctree-l4" href="#sql-wildcards">SQL Wildcards</a></li>
+        
+            <li><a class="toctree-l4" href="#the-sql-in-operator">The SQL IN Operator</a></li>
+        
+            <li><a class="toctree-l4" href="#sql-between-operator">SQL BETWEEN Operator</a></li>
+        
+            <li><a class="toctree-l4" href="#sql-aliases">SQL Aliases(别名)</a></li>
+        
+            <li><a class="toctree-l4" href="#sql-joins">SQL Joins</a></li>
+        
+            <li><a class="toctree-l4" href="#sql-self-join">SQL Self JOIN</a></li>
+        
+            <li><a class="toctree-l4" href="#sql-union-operator">SQL UNION Operator</a></li>
+        
+            <li><a class="toctree-l4" href="#sql-group-by-statement">SQL GROUP BY Statement</a></li>
+        
+            <li><a class="toctree-l4" href="#sql-having-clause">SQL HAVING Clause</a></li>
+        
+            <li><a class="toctree-l4" href="#whats-the-difference-between-on-where-having-clause">What's the difference between ON, WHERE, HAVING clause</a></li>
+        
+            <li><a class="toctree-l4" href="#sql-exists-operator">SQL EXISTS Operator</a></li>
+        
+            <li><a class="toctree-l4" href="#sql-any-and-all-operator">SQL ANY and ALL Operator</a></li>
+        
+            <li><a class="toctree-l4" href="#sql-select-into-statement">SQL SELECT INTO Statement</a></li>
+        
+            <li><a class="toctree-l4" href="#sql-insert-into-select-statement">SQL INSERT INTO SELECT Statement</a></li>
+        
+            <li><a class="toctree-l4" href="#sql-case-statement">SQL CASE Statement</a></li>
+        
+            <li><a class="toctree-l4" href="#sql-null-functions">SQL NULL Functions</a></li>
+        
+            <li><a class="toctree-l4" href="#references">References</a></li>
         
         </ul>
     
@@ -103,6 +139,14 @@
                 <li class="">
                     
     <a class="" href="../EnglishNotes/">EnglishNotes</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../spring/">SpringNotes</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../SpringMvc/">SpringMVCNotes</a>
                 </li>
     </ul>
 	    </li>
@@ -171,7 +215,25 @@
 <li><a href="#sql-delete-statement">SQL DELETE Statement</a></li>
 <li><a href="#sql-top-limit-or-rownum-clause">SQL TOP, LIMIT or ROWNUM Clause</a></li>
 <li><a href="#sql-min-and-max-functions">SQL MIN() and MAX() Functions(函数)</a></li>
-<li><a href="#thanks-to">Thanks to</a></li>
+<li><a href="#sql-count-avgsum-functions">SQL COUNT(), AVG(),SUM() Functions</a></li>
+<li><a href="#sql-like-operator">SQL LIKE Operator</a></li>
+<li><a href="#sql-wildcards">SQL Wildcards</a></li>
+<li><a href="#the-sql-in-operator">The SQL IN Operator</a></li>
+<li><a href="#sql-between-operator">SQL BETWEEN Operator</a></li>
+<li><a href="#sql-aliases">SQL Aliases(别名)</a></li>
+<li><a href="#sql-joins">SQL Joins</a></li>
+<li><a href="#sql-self-join">SQL Self JOIN</a></li>
+<li><a href="#sql-union-operator">SQL UNION Operator</a></li>
+<li><a href="#sql-group-by-statement">SQL GROUP BY Statement</a></li>
+<li><a href="#sql-having-clause">SQL HAVING Clause</a></li>
+<li><a href="#whats-the-difference-between-on-where-having-clause">What's the difference between ON, WHERE, HAVING clause</a></li>
+<li><a href="#sql-exists-operator">SQL EXISTS Operator</a></li>
+<li><a href="#sql-any-and-all-operator">SQL ANY and ALL Operator</a></li>
+<li><a href="#sql-select-into-statement">SQL SELECT INTO Statement</a></li>
+<li><a href="#sql-insert-into-select-statement">SQL INSERT INTO SELECT Statement</a></li>
+<li><a href="#sql-case-statement">SQL CASE Statement</a></li>
+<li><a href="#sql-null-functions">SQL NULL Functions</a></li>
+<li><a href="#references">References</a></li>
 </ul>
 </li>
 </ul>
@@ -424,10 +486,474 @@ SELECT colomn1,column2... FROM table_name WHERE conditon AND ROWNUM &lt;= number
 
 <h2 id="sql-min-and-max-functions">SQL MIN() and MAX() Functions(函数)</h2>
 <p>The MIN() function returns the smallest value of the selected column.</p>
-<p>The MAX() function re</p>
-<h2 id="thanks-to">Thanks to</h2>
+<p>The MAX() function return the lagerest value of the selected column.</p>
+<p><strong>MAX() and MIN()Syntax</strong></p>
+<pre><code class="sql">SELECT MAX(column_name) FROM table_name WHERE codition;
+SELECT MIN(column_name) FROM table_name WHERE conditon;
+</code></pre>
+
+<h2 id="sql-count-avgsum-functions">SQL COUNT(), AVG(),SUM() Functions</h2>
+<p>The COUNT() function returns the number of rows that matches(匹配) a specified criteria(条件).</p>
+<p>The AVG() function returns the average(平均的['ævərɪdʒ]) value of a numeric column.</p>
+<p>The SUM() function returns the total sum of a numric column.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="sql">SELECT COUNT(column_name) FROM table_name WHERE condition;
+SELECT AVG(column_name) FROM table_name WHERE condition;
+SELECT SUM(column_name) FROM table_name WHERE condition;
+</code></pre>
+
+<p>such as <code>SELECT COUNT(customerID) FROM Customer;</code></p>
 <blockquote>
-<p>Reference</p>
+<p><strong>Note</strong>:The NULL values will be ignored.</p>
+</blockquote>
+<p><strong>Example</strong></p>
+<pre><code class="sql">-- count the number of different customers in the oreders' table
+SELECT COUNT(DISTINCT CustomerID) AS NumberOfCustomer FROM Orders;
+-- The following statement choose the product's price that higher than average price
+SELECT ProductName,price FROM Products WHERE price &gt; (SELECT AVG(PRICE) FROM Products);
+-- Add all quantity
+SELECT SUM(Quantity) from Products;
+</code></pre>
+
+<h2 id="sql-like-operator">SQL LIKE Operator</h2>
+<p>The LIKE operator is used in a WHERE clause to serach a specified pattern(模式) in a column.</p>
+<p>There are two wildcards(通配符)  often used in conjunction(结合，连词) with the LIKE operator;</p>
+<ul>
+<li>%   pecent sign represent zero, one, or multiple characters.</li>
+<li>_    The underscore(连字符，下划线) represents a single character.</li>
+</ul>
+<blockquote>
+<p><strong>Notes:</strong> MS Access use asterisk(*) (星号 ['æstərɪsk]) instead of the percent sign(%), use question mark(?) instead of underscore(_).</p>
+</blockquote>
+<p>The percent sign and the underscore can also be used in conbinations(组合)!</p>
+<p><strong>LIKE Syntax</strong></p>
+<pre><code class="sql">SELECT  column1,column2,... FROM table_name WHERE columnN LIKE pattern;
+</code></pre>
+
+<p>Here are some examples showing different LIKE operators with ' % ' and ' _ ' wildcards:</p>
+<table>
+<thead>
+<tr>
+<th>LIKE Operator</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>WHERE CustomerName LIKE 'a%'</td>
+<td>Finds any values that start with "a"</td>
+</tr>
+<tr>
+<td>WHERE CustomerName LIKE '%a'</td>
+<td>Finds any values that end with "a"</td>
+</tr>
+<tr>
+<td>WHERE CustomerName LIKE '%or%'</td>
+<td>Finds any values that have "or" in any position</td>
+</tr>
+<tr>
+<td>WHERE CustomerName LIKE '_r%'</td>
+<td>Finds any values that have "r" in the second position</td>
+</tr>
+<tr>
+<td>WHERE CustomerName LIKE 'a_%_%'</td>
+<td>Finds any values that start with "a" and are at least 3 characters in length</td>
+</tr>
+<tr>
+<td>WHERE ContactName LIKE 'a%o'</td>
+<td>Finds any values that start with "a" and ends with "o"</td>
+</tr>
+</tbody>
+</table>
+<h2 id="sql-wildcards">SQL Wildcards</h2>
+<p>A wildcard character is used to substitude(代替) one or more charcters in a string.</p>
+<p>Wildcatds charcters are used with <a href="# SQL LIKE Operator">SQL LIKE</a> operator.The LIKE operator is used in a WHERE clause to search a specified pattern in a column.</p>
+<p>Here are some wildcard characters in all DB:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Symbol</th>
+<th align="left">Description</th>
+<th align="left">Exampl</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">[charlist]</td>
+<td align="left">Represents any single character within(在...之内) the brackets</td>
+<td align="left">h[oa]t finds hot and hat, but not hit</td>
+</tr>
+<tr>
+<td align="left">-</td>
+<td align="left">Hyphen(连字符) Represents a range of characters</td>
+<td align="left">c[a-b]t finds cat and cbt</td>
+</tr>
+<tr>
+<td align="left">#</td>
+<td align="left">Number sign Represents any single numeric character</td>
+<td align="left">2#5 finds 205, 215, 225, 235, 245, 255, 265, 275, 285, and 295</td>
+</tr>
+</tbody>
+</table>
+<p>Wildcard characters in SQL Server and MySQL</p>
+<table>
+<thead>
+<tr>
+<th align="left">Symbol</th>
+<th align="left">Description</th>
+<th align="left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">%</td>
+<td align="left">Represents zero or more characters</td>
+<td align="left">bl% finds bl, black, blue, and blob</td>
+</tr>
+<tr>
+<td align="left">_</td>
+<td align="left">Represents a single character</td>
+<td align="left">h_t finds hot, hat, and hit</td>
+</tr>
+<tr>
+<td align="left">^</td>
+<td align="left">Caret(脱字符) represent any character not in the brakets</td>
+<td align="left"><code>h[^oa]t</code> finds hit, but not hot and hat</td>
+</tr>
+</tbody>
+</table>
+<p>Wildcard characters in MS Acess</p>
+<table>
+<thead>
+<tr>
+<th align="left">Symbol</th>
+<th align="left">Description</th>
+<th align="left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">*</td>
+<td align="left">Represents zero or more characters</td>
+<td align="left">bl* finds bl, black, blue, and blob</td>
+</tr>
+<tr>
+<td align="left">?</td>
+<td align="left">Represents a single character</td>
+<td align="left">h?t finds hot, hat, and hit</td>
+</tr>
+<tr>
+<td align="left">!</td>
+<td align="left">Exclamation represent any charater not in the brackets</td>
+<td align="left">h[!oa]t finds hit, but not hot and hat</td>
+</tr>
+</tbody>
+</table>
+<h2 id="the-sql-in-operator">The SQL IN Operator</h2>
+<p>The IN operator allow you to specify multiple values in a WHERE clasuse.</p>
+<p>The IN operator is a shorthand(简写，速记) for multiple OR condition.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="sql">SELECT column_name(s) FROM table_name WHERE column_name IN  (value1,value2...);
+SELECT column_name(s) FROM IN (SELECT STATEMENT);
+</code></pre>
+
+<blockquote>
+<p><strong>NOTE:</strong> text value should be enclosed in single quote ;</p>
+</blockquote>
+<p><strong>Example</strong></p>
+<pre><code class="sql">SELECT * FROM Customers WHERE country (NOT) IN ('USA','France');
+-- The following statement will select all the customer that are from the countries as the suppliers(供应商):
+SELECT * FROM Customers WHERE country IN (SELECT Country FROM Suppliers);
+</code></pre>
+
+<h2 id="sql-between-operator">SQL BETWEEN Operator</h2>
+<p>The BETWEEN operator selects values within a given range.The values can be text, number or dates.</p>
+<p>The BETWEEN operator is <strong>inclusive</strong>(包含性的): begin and end values are included.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="sql">SELECT column_name(s) FROM table_name WHERE column_name between value1 AND value2;
+</code></pre>
+
+<p><strong>Example</strong></p>
+<pre><code class="sql">-- To display the product outside the range of the previous example,use NOT BETWEEN:
+SELECT * FROM Products WHERE Price NOT BETWEEN 10 AND 20;
+-- Select all product with price BETWEEN 10 and 20,In addition(另外); do not show priducts with a CategoryID of 1, 2, or 3:
+SELECT * FROM Product WHERE (Price BETWEEN 10 AND 20) AND (CategoryID NOT IN (1,2,3));
+-- NOT operator also can be written before the CategoryID,it make the same effect.
+-- The following statement select all orders with OrderDate between '01-July-1996' and '31-July-1996':
+SELECT * FROM Orders WHERE OrederDate BETWEEN #01/07/1996# AND #31/07/1996#;
+--Or the bellow(above syntax are not supported in MySQL)
+SELECT * FROM Orders WHERE '1996-07-01' AND '1996-07-31';
+</code></pre>
+
+<blockquote>
+<p><strong>Tips:</strong>In diffrerent DBSM, the BETWEEN oprator will be produce(产生) different results.</p>
+<p>Such as BETWEEN 1 AND 10; It may be regarded as (1,10) or [1,10] or [1,10).</p>
+<p><strong>So please check your how your DB deal with BETWEEN operator</strong>.</p>
+</blockquote>
+<h2 id="sql-aliases">SQL Aliases(别名)</h2>
+<p>SQL aliases are used to give a table, or a column in a table, a temporary name.</p>
+<p>Aliases are often be used to make column name more readable.</p>
+<p>An alias only exits for the duration of the query.</p>
+<p><strong>Syntax</strong> </p>
+<pre><code class="sql">SELECT column_name AS alias_name FROM table_name;
+SELECT column_name(s) FROM table_name AS alias_name;
+</code></pre>
+
+<blockquote>
+<p><strong>Note:</strong> If an alias name contains space, it requires double quotation mark(双引号) or square brackets(方括号).</p>
+<p>MySQL does not supports square brakets for Aliases.</p>
+</blockquote>
+<p><strong>Example</strong></p>
+<pre><code class="sql">SELECT CustomerName AS Customer,CntactName AS [Contact Person] FROM Customers;
+-- Your can create a alies named &quot;address&quot; that combine four colomns(Address,PostalCode,City and Country)
+SELECT CustomerName, Address + ',' + PostalCode + ' ' + City + Country AS Address FROM Customers;
+-- In MySQL you should write as following:
+SELECT CustomerName,CONCAT(Address,','PostalCode,', 'City,', ',Country) AS Address FROM Customers;
+SELECT o.OrderID, o.OrderDate, c.CustomerName
+FROM Customers AS c, Orders AS o
+WHERE c.CustomerName=&quot;Around the Horn&quot; AND c.CustomerID=o.CustomerID;
+</code></pre>
+
+<p>Alies can be useful when:</p>
+<ul>
+<li>There are more than one table involved(涉及) in a query</li>
+<li>Functions are used in the query</li>
+<li>Column names are big or not very readable</li>
+<li>Two or more columns are combined together</li>
+</ul>
+<h2 id="sql-joins">SQL Joins</h2>
+<p>A JOIN clause is used to combine rows from two or more tables, based on a related column between them.</p>
+<p><strong>Different type of SQL JOINS</strong></p>
+<ul>
+<li>(INNER) JOIN:Returns record that have matching values in both.</li>
+<li>LEFT (OUTER) JOIN: Return all records from the left table, and the matched records from the right table.</li>
+<li>RIGHT(OUTER) JOIN:Return all records from the right table,and the matched records from the left table.</li>
+<li>FULL(OUTER) JOIN:Return all records when there is a match in either left or right table.</li>
+<li>CARTESIAN JOIN(笛卡尔连接)：Return result-sets' cartesian product(笛卡尔积) from two or more tables.</li>
+</ul>
+<p>Cartesian join as the same as the INNER JOIN without WHERE clause.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="sql">SELECT column_name(s) FROM table1 INNER JOIN table2 ON table1.column_name = table2.column_name;
+SELECT column_name(s) FROM table1 LEFT JOIN table2 ON table1.column_name = table2.column_name;
+SELECT column_name(s) FROM table1 RIGHT JOIN table2 ON table1.column_name = table2.column_name;
+SELECT column_name(s) FROM table1 FULL JOIN table2 ON table1.column_name = table2.column_name;
+SELECT column_name(s) FROM table1,table2,...;
+</code></pre>
+
+<blockquote>
+<p><strong>Note:</strong>Some database do not support full join, you can use UNION ALL to combine the left join and right  join.</p>
+</blockquote>
+<pre><code class="sql">SELECT column_name(s) FROM table1 LEFT JOIN table2 ON table1.column_name = table2.column_name
+UNION ALL
+SELECT column_name(s) FROM table1 RIGHT JOIN table2 ON table1.column_name = table2.column_name;
+</code></pre>
+
+<p><strong>Example</strong></p>
+<pre><code class="sql">-- The follwing SQL statement select all orders with customer infomation:
+SELECT a.OrderID,b.CustomerName FROM Orders AS a INNER JOIN Customers AS b ON a.CustomerID = b.CustomerID;
+/*
+JOIN Three tables
+The follwing SQL statement select all orders with customer and shipper information:
+*/
+SELECT a.OrderID,b.CustomerName,c.ShipperName FROM( (Orders AS a INNER JOIN Customers AS b ON a.CustomerID = b.CustomerID) INNER JOIN Shippers AS c ON a.ShipperID = c.ShipperID);
+</code></pre>
+
+<h2 id="sql-self-join">SQL Self JOIN</h2>
+<p>A self JOIN is a regular(常规)  join, but the table is joined with itself.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="sql">SELECT column_name(s) FROM table1 T1,table T2 WHERE condition;
+</code></pre>
+
+<p><strong>Example</strong></p>
+<pre><code class="sql">-- The following SQL statement matches customers that from the same city:
+SELECT a.CustomerName AS customer1,b.customerName AS customer2,a.city FROM Customers a,Customers b WHERE a.CustomerID &lt;&gt; b.CustomerID AND a.city = b.city ORDER BY a.city;
+</code></pre>
+
+<h2 id="sql-union-operator">SQL UNION Operator</h2>
+<p>The UNION operator is used to combine the result-set two or more SELECT statement.</p>
+<ul>
+<li>Each SELECT statement within UNION operator must have the same number of columns</li>
+<li>The columns must also have similar data types.</li>
+<li>The columns in each SELECT statement must also be in the same order.</li>
+</ul>
+<p>The Union result-set's column name always as the name as the column name in the first select statement.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="sql">SELECT column_name(s) FROM table1 UNION SELECT column_name(s) FROM table2;
+</code></pre>
+
+<p>The UNION operator selects only <strong>distinct</strong> values by default.To allow duplicate values, use UNION ALL:</p>
+<pre><code class="sql">SELECT column_name(s) FROM table1 UNION ALL SELECT column_name(s) FROM table2;
+</code></pre>
+
+<p><strong>Example</strong></p>
+<pre><code class="sql">--returns the German cities(duplicate values also) from both the &quot;Customers&quot; and &quot;Suppliers&quot; table:
+SELECT City,Country FROM Customers WHERE Country = 'German'
+UNION ALL
+SELECT City,Country FROM Suppliers WHERE Country = 'German'
+ORDER BY City;
+-- list all customrts and suppliers
+SELECT 'Customer' AS Type,  CustomerName FROM Customers
+UNION ALL
+SELECT 'Suppliers',SupplierName FROM Suppliers;
+</code></pre>
+
+<h2 id="sql-group-by-statement">SQL GROUP BY Statement</h2>
+<p>The GROUP BY statement is often used with aggregate(聚合) functions(COUNT, MAX, MIN, AVG, SUM) to group the result-set by one or more columns.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="sql">SELECT column_name(s) FROM table_name WHERE condition GROUP BY column_name(s) ORDER BY column_name(s);
+</code></pre>
+
+<p><strong>Example</strong></p>
+<pre><code class="sql">-- list the number of customers from the each country,sorted high to low
+SELECT COUNT(CustomerID), Country FROM Customers GROUP BY Country ORDER BY COUNT(CustomerID) DESC;
+-- list the number of orders sent by each shipper:
+SELECT COUNT(o.OrderID),s.ShipperName FROM Orders AS o LEFT JOIN Shippers AS s ON o.ShipperID = s.ShipperID;
+</code></pre>
+
+<blockquote>
+<p><strong>Note:</strong>Remember what condition you want to sort the record, do not fogot to add the aggregate functions.</p>
+</blockquote>
+<h2 id="sql-having-clause">SQL HAVING Clause</h2>
+<p>The HAVING clause was added to SQL because <strong>the WHERE keyword could not be used with aggregate functions</strong>.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="sql">SELECT column_name(s) FROM table_name WHERE conditon GROUP BY column_name(s) HAVING condition ORDER BY column_name(s);
+</code></pre>
+
+<p><strong>Example</strong></p>
+<pre><code class="sql">-- list the number of customers in each country.Only include countries with more than 5 customers:
+SELECT COUNT(CustomerID),Country FROM Customers GROUP BY Country HAVING COUNT(CustomerID) &gt;5;
+-- list if the employees &quot;Mike&quot; or &quot;Sara&quot; have registered more than 25 orders:
+SELECT e.LastName,COUNT(o.OrderID) FROM Employees AS e INNER JOIN Orders AS o ON e.EmployeeID = o.EmployeeID  
+WHERE e.LastName IN ('Mike','Sara')
+GROUP BY e.LastName
+HAVING COUNT(o.OrderID) &gt; 25;
+</code></pre>
+
+<h2 id="whats-the-difference-between-on-where-having-clause">What's the difference between ON, WHERE, HAVING clause</h2>
+<p>Judge(判断) from the excute orders, their excute order is ON -&gt; WHERE -&gt; HAVING.</p>
+<p>In the case of(在...的情况下) LEFT JOIN ,ON condition is <strong>used in creating </strong>temporary table, it doesn't mattter if the condition is true, it will show all the records from the left table. However, the WHERE contion is used <strong>after the temporary table is created </strong>, then filter the record that condition is false in the temporary table. So if you use WHERE operator, it is truly as the same as use INNER JOIN.</p>
+<p>In multi-table join query, DBMS will create a temporary table base on ON condition, then filter by WHERE clause, and then do some aggregate function or others, after calculate(计算), filter by HAVING clause.</p>
+<blockquote>
+<p>quote from:<a href="https://www.cnblogs.com/guanshan/articles/guan062.html">深邃的夜空</a></p>
+</blockquote>
+<h2 id="sql-exists-operator">SQL EXISTS Operator</h2>
+<p>The EXISTS operator is used to test the existence of any record in a subquery(子查询).</p>
+<p>The EXISTS operator returns true if the subquery returns one or more records.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="sql">SELECT column_name(s) FROM table_name WHERE EXISTS (SELECT column_name)
+</code></pre>
+
+<blockquote>
+<p><strong>Note:</strong> Why the second "table_name" does not exists "(s)", although the tutorial does not refer it, through my test in mysql, the subquery will return all the columns that match the condition. So you don't need to specify the columns that you want to use in the parent query.</p>
+</blockquote>
+<p><strong>Example</strong></p>
+<pre><code class="sql">-- The following statement list the suppliers with a product price less than 20:
+SELECT SupplierName FROM Suppliers WHERE EXITS(SELECT ProductName FROM Products WHERE Products.SupplierID = Suppliers.ID AND Price &lt; 20 );
+</code></pre>
+
+<h2 id="sql-any-and-all-operator">SQL ANY and ALL Operator</h2>
+<p>The ANY and ALL operator are used  with a WHERE or  HAVING clause.</p>
+<p>The ANY operator returns true if any of the subquery values meet the condition.</p>
+<p>The ALL operator returns true if all of the subquery values meet the condition.</p>
+<p><strong>Do not be confused with ANY and EXISTS operator</strong></p>
+<p><strong>Syntax</strong></p>
+<pre><code class="sql">SELECT column_name(s) FROM table_name WHERE column_name operator ALL | ANY 
+(SELECT column_name FROM table_name WHERE condition);
+</code></pre>
+
+<blockquote>
+<p><strong>Note:</strong> The operator must be a standard comparision(比较) operator (=, &lt;&gt;, !=, &gt;, &gt;=, &lt;, or &lt;=) .</p>
+</blockquote>
+<p><strong>Example</strong></p>
+<pre><code class="sql">-- The follwing statement will lists the productnames if it finds any records in the OrderDetails table that quantity(数量) = 10;
+SELECT ProductName FROM Products WHERE ProductID = ANY (SELECT ProductID FROM OrderDetails WHERE Quantity = 10);
+</code></pre>
+
+<h2 id="sql-select-into-statement">SQL SELECT INTO Statement</h2>
+<p>The SELECT INTO statement copies data from one table into a new table.</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="sql">SELECT * INTO newtable [IN externaldb] FROM oldtable WHERE condition;
+</code></pre>
+
+<p>external:外部的</p>
+<pre><code class="sql">SELECT column1,column2...INTO newtable [IN externaldb] FROM oldtable WHERE condition;
+</code></pre>
+
+<p><strong>Example</strong></p>
+<pre><code class="sql">SELECT * INTO CustomersBackup2019 IN 'Backup.mdb' FROM Customers; 
+SELECT c.CustomerName,o.OrderID INTO CustomersBackup2019 IN 'Backup.mdb' FROM Customer AS c LEFT JOIN Orders AS o ON c.CustomerID = o.CustomerID;
+</code></pre>
+
+<p><strong>Tips: You can also create a new empty table using the schema(模式) of another, Just add a WHERE clause that cause the query  to return no data</strong></p>
+<pre><code class="sql">SELECT * INTO Customer2019 FROM Customer2018 WHERE 1 = 0;
+</code></pre>
+
+<p>However, MySQL do not support SELECT INTO statementm, you can use the following statement</p>
+<pre><code class="sql">-- Copy data
+CREATE TABLE CustomersBackup(SELECT * FROM Customers);
+-- Only copy table schema
+CREATE TABLE CustomerBackup LIKE Customers.
+</code></pre>
+
+<h2 id="sql-insert-into-select-statement">SQL INSERT INTO SELECT Statement</h2>
+<p>The INSERT INTO SELECT  statement copies data from one table and insert it into anther table.</p>
+<ul>
+<li>INSERT INTO SELECT requires that data types in source and target tables match</li>
+<li>The existing records in the target table are unaffected.</li>
+</ul>
+<p><strong>Syntax</strong></p>
+<pre><code class="sql">INSERT INTO table2 SELECT * FROM table1 WHERE condition;
+INSERT INTO table2 (column1,column2...) FROM table1 WHERE condition;
+</code></pre>
+
+<h2 id="sql-case-statement">SQL CASE Statement</h2>
+<p>The CASE statement goes through conditions and return a value when the first comdition is met(like an IF-THEN-ELSE statement). So, once a condition is true, it will stop reading and return the result. If no conditions are true, it returns the value in the ELSE clause.</p>
+<p>If there is no ELSE part and no codition are true, it returns NULL;</p>
+<p><strong>Syntax</strong></p>
+<pre><code class="sql">CASE
+    WHEN condition1 THEN result1
+    WHEN condition2 THEN result2
+    WHEN conditionN THEN resultN
+    ELSE result
+END;    
+</code></pre>
+
+<p><strong>Example</strong></p>
+<pre><code class="sql">SELECT OrderID,Quantity,
+CASE
+    WHEN Quantity &gt; 30 THEN &quot;The quantity is more than 30&quot;
+    ELSE &quot;The quantity is less or equal 30&quot;
+END AS Quantity
+FROM Orders;
+-- Another example
+SELECT CustomerName,City,Country
+FROM Customers
+ORDER BY
+(CASE 
+    WHEN City IS NULL THEN Country
+    ELSE City
+ END);
+</code></pre>
+
+<h2 id="sql-null-functions">SQL NULL Functions</h2>
+<p>Look at the statement below first</p>
+<pre><code class="sql">SCELECT ProductName, UnitPrice*(2 + UnitsOnOrder) FROM Products;
+</code></pre>
+
+<p>If any of the "UnitsOnOrder" value are NULL, the result will be NULL.</p>
+<p><strong>Solutions</strong></p>
+<p>The MySQL IFNULL()  or COALESCE() (合并)function let you return an alternative value if an expression is NULL:</p>
+<pre><code class="sql">SELECT ProductName, UnitPrice * (1 + IFNULL(UnitsOrder,0)) FROM Orders;
+SELECT ProductName, UnitPrice * (1 + COALESCE(UnitsOrder,0)) FROM Orders;
+</code></pre>
+
+<p>In SQL Server use ISNULL() while MS Access use NVL() to solve this question</p>
+<pre><code class="sql">SELECT ProductName, UnitPrice * (1 + ISNULL(UnitsOrder,0)) FROM Orders;
+SELECT ProductName, UnitPrice * (1 + NVL(UnitsOrder,0)) FROM Orders;
+</code></pre>
+
+<h2 id="references">References</h2>
+<blockquote>
 <p><a href="https://www.w3schools.com/sql/default.asp">w3schools</a></p>
 <p><a href="https://www.w3cschool.cn/sql/uoxvhfqr.html">W3CschoolCN</a></p>
 <p><a href="http://www.w3school.com.cn/sql/index.asp">W3School</a></p>
